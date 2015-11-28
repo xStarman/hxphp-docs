@@ -175,7 +175,7 @@ Caso queira utilizar os valores das configurações e até mesmo recursos como o
 
 
 Imagine o seguinte processo:
-`produtos/cadastrar/ **-&gt;** produtos/salvar/ **-&gt;** produtos/listar/`
+`produtos/cadastrar/ **->** produtos/salvar/ **->** produtos/listar/`
 
 
 Após o formulário ser processado e disparado para a *action* `**salvar**` será necessário um redirecionamento para a *action* `**listar**` e para fazermos isto utilizamos o seguinte código:
@@ -188,7 +188,7 @@ Após o formulário ser processado e disparado para a *action* `**salvar**` ser�
       if ($processo->status === true) {
 
         /**
-         * @param string $url Especifique o link para qual a aplica&ccedil;&atilde;o ser&aacute; redirecionada
+         * @param string $url Especifique o link para qual a aplicação será redirecionada
          */
         $this->redirectTo(URL);
 
