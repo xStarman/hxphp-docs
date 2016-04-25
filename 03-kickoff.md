@@ -80,7 +80,7 @@ Também é possível organizar os *controllers* em subpastas. Esta funcionalidad
 Essa requisição é subdividida em:
 
 ```
-  http://site.com.br`/`**admin/projetos/novo/**
+  http://site.com.bradmin/projetos/novo/
 ```
   
 + `subpasta` -> *admin*
@@ -91,7 +91,7 @@ Essa requisição é subdividida em:
 **Para utilizar esta funcionalidade necessita-se da existência da respectiva subpasta no diretório dos controllers.**
 
 ```
-  http://localhost`/hxphp/`**projetos/listar/1**
+  http://localhost/hxphp/projetos/listar/1
 ```
   
 + `subpasta` -> null
