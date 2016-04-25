@@ -88,6 +88,8 @@ Essa requisição é subdividida em:
 + `action` -> *novo*
 + `parâmetro(s)` -> null
 
+**Para utilizar esta funcionalidade necessita-se da existência da respectiva subpasta no diretório dos controllers.**
+
 ```
   http://localhost`/hxphp/`**projetos/listar/1**
 ```
