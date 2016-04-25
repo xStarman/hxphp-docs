@@ -10,7 +10,7 @@ Após vistar todos os itens da lista de requisitos, prossiga com a instalação,
 
 + Enviar os arquivos para a pasta desejada;
 + Editar o arquivo `app/config.php`, e;
-+ Configuar o .htaccess.
++ Editar o arquivo .htaccess.
 
 ----
 
@@ -26,7 +26,7 @@ As configurações são divididas em dois grupos:
 + Configurações de ambiente.
 
 
-As `globais` tem como objetivo definir parâmetros que, em suma, não necessitam de alteração, pois, consistem em intervenções no funcionamento padrão do framework.
+As `globais` tem como objetivo definir parâmetros que, em suma, não necessitam de alteração, pois, consistem em intervenções no funcionamento padrão do framework. Exemplos: Diretório dos controllers, diretório das views e etc.
 
 
 Já as `configurações de ambiente` são parâmetros que variam de acordo com o `ambiente atual`. O ambiente além de conter a sua configuração padrão também pode conter módulos.
@@ -65,9 +65,9 @@ Por padrão, a única configuração padrão de ambiente é a `baseURI` que defi
 Para alterá-la: `$configs->env->nomedoambiente->baseURI = '/hxphp/';`.
 
 
-Os módulos padrão de ambiente são: `Database` e `Mail`. Os módulos não são padronizados, portanto a nomenclatura dos métodos é aleatória.
+Os módulos padrão de ambiente são: `Database` e `Mail`. Os módulos não são padronizados.
 
-Para criar um módulo é necessário salvá-lo na pasta: `/src/HXPHP/System/Configs/Modules/` e adicioná-lo na lista de módulos do arquivo `/src/HXPHP/System/Configs/RegisterModules.php`.
+Para criar um módulo é necessário salvá-lo na pasta: `/src/HXPHP/System/Configs/Modules/` e **adicioná-lo na lista de módulos** do arquivo `/src/HXPHP/System/Configs/RegisterModules.php`.
 
 
 <small>Exemplo demonstrando o registro de um módulo qualquer chamado Youtube (RegisterModules.php):</small>
@@ -119,10 +119,12 @@ class RegisterModules
   $configs->env->development->baseURI = '/hxphp/';
 
   $configs->env->development->database->setConnectionData(array(
+    'driver' => 'mysql',
     'host' => 'localhost',
     'user' => 'root',
     'password' => '',
-    'dbname' => 'hxphp'
+    'dbname' => 'hxphp',
+    'charset' => 'utf8'
   ));
 
   $configs->env->development->mail->setFrom(array(
@@ -136,10 +138,12 @@ class RegisterModules
   $configs->env->production->baseURI = '/';
 
   $configs->env->production->database->setConnectionData(array(
+    'driver' => 'mysql',
     'host' => 'localhost',
     'user' => 'usuariodobanco',
     'password' => 'senhadobanco',
-    'dbname' => 'hxphp'
+    'dbname' => 'hxphp',
+    'charset' => 'utf8'
   ));
 
   $configs->env->production->mail->setFrom(array(
@@ -198,3 +202,7 @@ O HXPHP Framework utiliza o [Composer](https://getcomposer.org/download) para ge
 
 
 Após constatar que o [Composer](https://getcomposer.org/download) está em pleno funcionamento, navegue até a pasta do framework e execute o comando: `composer install`.
+
+----
+
+**Para lhe auxiliar neste processo, confira essa série completa de videoaulas gratuitas sobre instalação e uso do Composer: [Série completa do canal HXTUTORS](https://goo.gl/9oQNr5)**
