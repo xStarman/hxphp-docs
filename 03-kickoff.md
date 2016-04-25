@@ -88,8 +88,6 @@ Essa requisição é subdividida em:
 + `action` -> *novo*
 + `parâmetro(s)` -> null
 
-**Para utilizar esta funcionalidade necessita-se da existência da respectiva subpasta no diretório dos controllers.**
-
 ```
   http://localhost/hxphp/projetos/listar/1
 ```
@@ -98,7 +96,27 @@ Essa requisição é subdividida em:
 + `controller` -> *projetos*
 + `action` -> *listar*
 + `parâmetro(s)` -> *1*
-  
+
+
+**Para utilizar esta funcionalidade necessita-se da existência da respectiva subpasta no diretório dos controllers. Se a subpasta não existir, o valor é automaticamente interpretado como Controller.**
+
+Veja abaixo a estrutura necessária para reproduzir o exemplo acima:
+
+```
+  app/
+    controllers/
+      admin/
+        ProjetosController.php
+      ProjetosController.php
+    views/
+      admin/
+        projetos/
+          novo.phtml
+      projetos/
+        listar.phtml
+```
+
+**Obs: A configuração de subpasta também se aplica às views!**
 
 O *Controller* e a *Action* tem posição fixa, já os parâmetros são infinitos, ou seja, desde que você especifique os dois primeiros valores da requisição, poderá passar quantos parâmetros desejar!
 
