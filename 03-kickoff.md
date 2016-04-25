@@ -74,13 +74,13 @@ Mas, isso não é tudo! Essa requisição é subdividida em:
 
 Também é possível organizar os *controllers* em subpastas. Esta funcionalidade permite uma fácil integração entre back e front-end, por exemplo. Confira o exemplo:
   
-+ http://site.com.br`/`**admin/projetos/novo/**
++ http://localhost`/hxphp/`**admin/projetos/novo/**
 + http://localhost`/hxphp/`**projetos/listar/1**
   
 Essa requisição é subdividida em:
 
 ```
-  http://site.com.bradmin/projetos/novo/
+  http://localhost/hxphp/admin/projetos/novo/
 ```
   
 + `subpasta` -> *admin*
