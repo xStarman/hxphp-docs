@@ -50,7 +50,7 @@ Sendo que os endereços de ambos serão, respectivamente:
 + a) `http://site.com.br/`
 + b) `http://localhost/hxphp/`
   
-Agora com esses exemplos definidos é importante que você lembre-se da `BASE DA URL`, vista no começo desta documentação. O valor da constante para os dois exemplos seria, respectivamente:
+Agora com esses exemplos definidos é importante que você lembre-se da `BASE DA URL`, vista no começo desta documentação. O valor desta configuração de ambiente para os dois exemplos seria, respectivamente:
 
 + a) `/`
 + b) `/hxphp/`
