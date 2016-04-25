@@ -13,3 +13,7 @@ Para a instalação bem-sucedida do framework necessita-se de alguns softwares, 
 + [Composer](https://getcomposer.org/download/)
 
 O *mod_rewrite* deve estar habilitado. Caso contrário o MVC não terá efeito e o *Apache* irá reportar o erro **"Not Found"**.
+
+----
+
+**Para lhe auxiliar neste processo, confira essa série completa de videoaulas gratuitas sobre os requisitos para programar PHP na sua máquina: [Série completa do canal HXTUTORS](https://goo.gl/9oQNr5)**
