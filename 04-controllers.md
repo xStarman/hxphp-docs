@@ -121,7 +121,8 @@ Algumas observações importantes:
 Através deste mecanismo é possível ter `**N** parâmetros` e nomeá-los de forma sugestiva, o que possibilitará uma melhor experiência com seus códigos.
 
 ----
-### Utilizando o método construtor {#utilizando-o-metodo-construtor}
+
+### Utilizando o método construtor {#metodo-construtor}
 
 O [método construtor](http://php.net/manual/pt_BR/language.oop5.decon.php#language.oop5.decon.constructor) de uma classe é um [método mágico](http://php.net/manual/pt_BR/language.oop5.magic.php) e basicamente tem como função ser o primeiro método de um objeto a ser executado, visto que o mesmo é executado automaticamente quando é criada uma instância.
 
