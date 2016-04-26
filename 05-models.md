@@ -46,7 +46,13 @@ O *ORM* nativo do HXPHP Framework é o [PHP ActiveRecord](http://phpactiverecord
 De toda forma, é recomendado que você leia a documentação oficial para compreender todos os recursos e possibilidades.
 
 #### Convenções
-A questão fundamental no uso deste *ORM* está nas convenções de nomenclatura das tabelas do banco de dados e dos *models*. 
+A questão fundamental no uso deste *ORM* está nas convenções de nomenclatura das tabelas do banco de dados e dos *models*. Confira a lista das 5 principais:
+
++ Todas as tabelas devem ser nomeadas em INGLÊS;
++ O nome do model é o **singular** do nome da tabela;
++ O nome do model deverá ser escrito no padrão CamelCase;
++ A chave primária deve ser 'id' e NÃO 'ID' ou 'Id', e;
++ {Tabela} login_attempts => {Model} LoginAttempt / lost_passwords => LostPassword.
 
 ----
 
