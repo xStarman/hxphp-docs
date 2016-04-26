@@ -40,13 +40,13 @@ As convenções da nomenclatura dos *models* são ditas pelo *ORM* vigente, port
 
 > Não é necessária uma correspondência direta entre as tabelas de dados e as classes do programa. A relação entre as tabelas onde originam os dados e o objecto que os disponibiliza é configurada pelo programador, isolando o código do programa das alterações à organização dos dados nas tabelas do banco de dados."
 
-Em outras palavras, com o uso de um *ORM* não precisaremos utilizar comandos SQL em nossos códigos, todos os procedimentos, como por exemplo o *CRUD*, são realizados através de programação orientada a objetos.
+Em outras palavras, com o uso de um *ORM* torna-se pouco provável o uso de comandos SQL nos códigos.
 A lógica é a seguinte: para cada tabela tem-se um *model*; sendo que cada *model* é um objeto, e; o *model* é uma extensão da classe mestre do *ORM*.
-O *ORM* nativo do HXPHP Framework é o [PHP ActiveRecord](http://phpactiverecord.org/), que é uma biblioteca *open source* desenvolvida nos padrões [ActiveRecord](http://en.wikipedia.org/wiki/Active_record_pattern). Trata-se de uma ferramenta de simples instalação e com uma sintaxe excelente, ou seja, além de ser fácil a sua implementação, o mesmo ainda conta com um nível mais do que considerável de legibilidade até mesmo por quem nunca ouviu falar deste *ORM*, pois, somente pelos métodos, nomeados de forma sugestiva, já é possível compreender o funcionamento.
+O *ORM* nativo do HXPHP Framework é o [PHP ActiveRecord](http://phpactiverecord.org/), que é uma biblioteca *open source* desenvolvida nos padrões [ActiveRecord](http://en.wikipedia.org/wiki/Active_record_pattern). Trata-se de uma ferramenta de simples instalação e com uma sintaxe fácil, ou seja, além de ser fácil a sua implementação, o mesmo ainda conta com um nível mais do que considerável de legibilidade até mesmo para quem nunca ouviu falar deste *ORM*, pois, somente pelos métodos, nomeados de forma sugestiva, já é possível compreender o funcionamento.
 De toda forma, é recomendado que você leia a documentação oficial para compreender todos os recursos e possibilidades.
 
 #### Convenções
-A questão fundamental no uso deste *ORM* está nas convenções de nomenclatura das tabelas do banco de dados e dos *models*. Tudo isto, visto que o *ORM*
+A questão fundamental no uso deste *ORM* está nas convenções de nomenclatura das tabelas do banco de dados e dos *models*. 
 
 ----
 
