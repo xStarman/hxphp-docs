@@ -26,6 +26,7 @@ O código base de um *model* é:
 		...
 	}
 ```
+
 As convenções da nomenclatura dos *models* são ditas pelo *ORM* vigente, portanto estas serão abordadas em uma seção específica.
 
 ----
@@ -49,8 +50,11 @@ A questão fundamental no uso deste *ORM* está nas convenções de nomenclatura
 
 ----
 
-### *Model* {#model-na-pratica}
+### *Model* na prática {#model-na-pratica}
+
 ```  {.brush:php}
+	<?php
+	
 	class Product extends \HXPHP\System\Model
 	{
 		static function exists($product_code)
