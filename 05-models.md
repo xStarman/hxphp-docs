@@ -13,8 +13,10 @@ As informações obtidas no modelo são repassadas para o controlador que, media
 ----
 
 ### Criando *Models* {#criando-models}
-Agora que você já sabe o que é um *model*, deve se atentar para os detalhes na criação do mesmo. Quando um *model* é criado com o objetivo de manipular uma tabela do banco de dados, é mais do que recomendado que este seja desenvolvido nos padrões do *ORM* vigente do framework, caso você não saiba o que é um *ORM*, fique tranquilo, pois isto será abordado em uma seção específica.
-Para aproveitar dos benefícios do *ORM* é necessário que o *model* herde as configurações dele, para tal é necessário que o seu *model* seja uma extensão da classe mestre `\HXPHP\System\Model`.
+Agora que você já sabe o que é um *model*, deve se atentar para os detalhes na criação do mesmo. Quando um *model* é criado com o objetivo de manipular uma tabela do banco de dados, é mais do que recomendado que este seja desenvolvido nos padrões do *ORM* vigente do framework (vide mais detalhes abaixo).
+
+Para aproveitar dos benefícios do *ORM* é necessário que o *model* herde as configurações dele e, para tal, é necessário que o seu *model* seja uma extensão da classe mestre `\HXPHP\System\Model`.
+
 O código base de um *model* é:
 ```  {.brush:php}
 	<?php
