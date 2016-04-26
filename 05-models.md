@@ -5,9 +5,10 @@ Nesta seção você irá conhecer mais uma das três camadas do padrão **MVC**.
 ----
 
 ### O que são *Models*? {#o-que-sao-models}
-Os *models*, comumente chamados de **modelos**, são responsáveis por todos os processos relacionados à dados. Ou seja, o processo de leitura, escrita e validação de dados é realizado nesta camada, sendo que, estas rotinas são chamadas de **regras de negócio**.
+Os *models*, comumente chamados de **modelos**, são responsáveis por todos os processos relacionados à dados. Ou seja, o processo de leitura, escrita e validação de dados é realizado nesta camada. Estas rotinas são chamadas de **regras de negócio**.
+
 O modelo acessa qualquer tipo de informação, seja desde um banco de dados até um arquivo *XML*.
-As informações obtidas no modelo são repassadas para o controlador, que mediante a necessidade, repassa para a visualização. Em outro caminho tem-se o envio de informações da visualização para o controlador; que envia para o modelo; este por sua vez consuma o processo realizando as devidas alterações nos dados.
+As informações obtidas no modelo são repassadas para o controlador que, mediante a necessidade, repassa para a visualização. Em outro caminho tem-se o envio de informações da visualização para o controlador; que, por sua vez, envia para o modelo; este consuma o processo realizando as devidas alterações nos dados.
 
 ----
 
