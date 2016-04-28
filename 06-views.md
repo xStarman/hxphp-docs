@@ -46,8 +46,8 @@ Estas são as opções disponíveis para configurar uma view:
 + `setHeader($string)` - Define o cabeçalho da view - *Padrão: header*
 + `setFooter($string)` - Define o rodapé da view - *Padrão: footer*
 + `setTemplate($boolean)` - Define se o cabeçalho e rodapé serão inclusos - *Padrão: true*
-+ `setAssets($string, $string | $array)` - Define arquivos CSS ou JS customizados para a view
-+ `setTitle($string)` - Define o título da view
++ `setAssets($string, $string | $array)` - Define arquivos CSS ou JS customizados para a view - *O primeiro parâmetro determina o tipo de arquivo, isto é, css ou js*
++ `setTitle($string)` - Define o título da view - *A variável $view_title recebe o valor desta configuração*
 
 *O código resultante seria:*
 ```  {.brush:php}
