@@ -11,12 +11,28 @@ As *views*, comumente chamadas de **interfaces**, são responsáveis por toda pa
 ----
 ### Criando *views* {#criando-views}
 
-Para criar uma *view* é necessário ter um cuidado fundamental que é verificar a extensão a qual deverá ser utilizada para salvar o arquivo. Portanto, verifique o valor da configuração global `$configs->global->views->extension`.
+Para criar uma *view* é necessário ter um cuidado fundamental que é: verificar a extensão definida para salvar o arquivo. Portanto, verifique o valor da configuração global `$configs->global->views->extension`.
 
 Por padrão a extensão das *views* é a `.phtml`. Ciente da extensão necessária é só salvar a *view* na pasta responsável.
 
 As *views* são organizadas da seguinte forma: <br>
 *app/views/`{nomedocontroller}`/`{nomedaaction}`.`phtml`*.
+
+#### Subpastas
+
+Quando o parâmetro `subfolder` é existente, isto é, atende aos requisitos mencionados na seção de Funcionamento da URL, as *views* também deverão ser organizadas nas respectivas subpastas do diretório `app/views`. 
+
+Um exemplo para o link (`http://www.site.com.br/hxphp/admin/produtos/listar`):
+
+```
+app/
+	views/
+		admin/
+			produtos/
+				listar.phtml
+```
+
+#### Convenções
 
 O padrão é *lowercase*. Todas as *views* de um *controller* são armazenadas em uma pasta com o nome do *controller*. Cada view é nomeada de acordo com a *action*. Porém, é possível alterar estas configurações através do objeto **View**.
 
