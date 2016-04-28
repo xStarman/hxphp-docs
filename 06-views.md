@@ -1,58 +1,51 @@
-<hr class="col-md-12">
-<h2 id="views"><em>Views</em></h2>
-<p>
-Nesta seção você irá conhecer mais uma das três camadas do padrão <strong>MVC</strong>.
-</p>
-<hr class="col-md-12">
-<h3 id="o-que-sao-views">O que são <em>views</em>?</h3>
-<p>
-As <em>views</em>, comumente chamadas de <strong>interfaces</strong>, são responsáveis por toda parte gráfica de nossa aplicação. É a camada que acomoda nossos códigos HTML.
-</p>
-<hr class="col-md-12">
-<h3 id="criando-views">Criando <em>views</em></h3>
-<p>
-Para criar uma <em>view</em> é necessário ter um cuidado fundamental que é verificar a extensão a qual deverá ser utilizada para salvar o arquivo. Portanto, verifique o valor da configuração global <code>$configs->global->views->extension</code>.
-</p>
-<p>
-Por padrão a extensão das <em>views</em> é a <code>.phtml</code>. Ciente da extensão necessária é só salvar a <em>view</em> na pasta responsável.
-</p>
-<p>
-As <em>views</em> são organizadas da seguinte forma: <br>
-<em>app/views/<code>{nomedocontroller}</code>/<code>{nomedaaction}</code>.<code>phtml</code></em>.
-</p>
-<p>
-O padrão é <em>lowercase</em>. Todas as <em>views</em> de um <em>controller</em> são armazenadas em uma pasta com o nome do <em>controller</em>. Cada view é nomeada de acordo com a <em>action</em>. Porém, é possível alterar estas configurações através do objeto <strong>View</strong>.
-</p>
-<hr class="col-md-12">
-<h3 id="configurando-a-view">Configurando a <em>View</em></h3>
-<p>
+----
+<h2 id="views">*Views*</h2>
+
+Nesta seção você irá conhecer mais uma das três camadas do padrão **MVC**.
+----
+<h3 id="o-que-sao-views">O que são *views*?</h3>
+
+As *views*, comumente chamadas de **interfaces**, são responsáveis por toda parte gráfica de nossa aplicação. É a camada que acomoda nossos códigos HTML.
+----
+<h3 id="criando-views">Criando *views*</h3>
+
+Para criar uma *view* é necessário ter um cuidado fundamental que é verificar a extensão a qual deverá ser utilizada para salvar o arquivo. Portanto, verifique o valor da configuração global `$configs->global->views->extension`.
+
+Por padrão a extensão das *views* é a `.phtml`. Ciente da extensão necessária é só salvar a *view* na pasta responsável.
+
+As *views* são organizadas da seguinte forma: <br>
+*app/views/`{nomedocontroller}`/`{nomedaaction}`.`phtml`*.
+
+O padrão é *lowercase*. Todas as *views* de um *controller* são armazenadas em uma pasta com o nome do *controller*. Cada view é nomeada de acordo com a *action*. Porém, é possível alterar estas configurações através do objeto **View**.
+----
+<h3 id="configurando-a-view">Configurando a *View*</h3>
+
 Estas são as opções disponíveis para configurar uma view:
 <ul>
 	<li>
-		<code>setPath($string)</code> - Define a pasta do arquivo - <small>Padrão: nome do controller</small>
+		`setPath($string)` - Define a pasta do arquivo - *Padrão: nome do controller*
 	</li>
 	<li>
-		<code>setFile($string)</code> - Define o nome do arquivo - <small>Padrão: nome da action</small>
+		`setFile($string)` - Define o nome do arquivo - *Padrão: nome da action*
 	</li>
 	<li>
-		<code>setHeader($string)</code> - Define o cabeçalho da view - <small>Padrão: header</small>
+		`setHeader($string)` - Define o cabeçalho da view - *Padrão: header*
 	</li>
 	<li>
-		<code>setFooter($string)</code> - Define o rodapé da view - <small>Padrão: footer</small>
+		`setFooter($string)` - Define o rodapé da view - *Padrão: footer*
 	</li>
 	<li>
-		<code>setTemplate($boolean)</code> - Define se o cabeçalho e rodapé serão inclusos - <small>Padrão: <em>true</em></small>
+		`setTemplate($boolean)` - Define se o cabeçalho e rodapé serão inclusos - *Padrão: true*
 	</li>
 	<li>
-		<code>setAssets($string, $string | $array)</code> - Define arquivos CSS ou JS customizados para a view
+		`setAssets($string, $string | $array)` - Define arquivos CSS ou JS customizados para a view
 	</li>
 	<li>
-		<code>setTitle($string)</code> - Define o título da view
+		`setTitle($string)` - Define o título da view
 	</li>
 </ul>
-</p>
-<p>
-<small>O código resultante seria:</small>
+
+*O código resultante seria:*
 <?=syntaxHighlight('
 	<?php
 
@@ -80,10 +73,9 @@ Estas são as opções disponíveis para configurar uma view:
 
 	}
 ');?>
-</p>
-<hr class="col-md-12">
-<h3 id="enviando-dados-para-a-view">Enviando dados para a <em>View</em></h3>
-<p>
+----
+<h3 id="enviando-dados-para-a-view">Enviando dados para a *View*</h3>
+
 <?=syntaxHighlight('
 	<?php
 
@@ -101,12 +93,10 @@ Estas são as opções disponíveis para configurar uma view:
 
 	}
 ');?>
-</p>
-<p>
-Na <em>view</em> todos estes dados são extraídos e atribuídos em variáveis com o sufixo <code>view_</code>. No exemplo acima, as variáveis disponíveis na view seriam:
+
+Na *view* todos estes dados são extraídos e atribuídos em variáveis com o sufixo `view_`. No exemplo acima, as variáveis disponíveis na view seriam:
 <ul>
 	<li>$view_mensagem</li>
 	<li>$view_usuario</li>
 	<li>$view_facebook</li>
 </ul>
-</p>
