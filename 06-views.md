@@ -21,32 +21,17 @@ O padrão é *lowercase*. Todas as *views* de um *controller* são armazenadas e
 <h3 id="configurando-a-view">Configurando a *View*</h3>
 
 Estas são as opções disponíveis para configurar uma view:
-<ul>
-	<li>
-		`setPath($string)` - Define a pasta do arquivo - *Padrão: nome do controller*
-	</li>
-	<li>
-		`setFile($string)` - Define o nome do arquivo - *Padrão: nome da action*
-	</li>
-	<li>
-		`setHeader($string)` - Define o cabeçalho da view - *Padrão: header*
-	</li>
-	<li>
-		`setFooter($string)` - Define o rodapé da view - *Padrão: footer*
-	</li>
-	<li>
-		`setTemplate($boolean)` - Define se o cabeçalho e rodapé serão inclusos - *Padrão: true*
-	</li>
-	<li>
-		`setAssets($string, $string | $array)` - Define arquivos CSS ou JS customizados para a view
-	</li>
-	<li>
-		`setTitle($string)` - Define o título da view
-	</li>
-</ul>
+
++ `setPath($string)` - Define a pasta do arquivo - *Padrão: nome do controller*
++ `setFile($string)` - Define o nome do arquivo - *Padrão: nome da action*
++ `setHeader($string)` - Define o cabeçalho da view - *Padrão: header*
++ `setFooter($string)` - Define o rodapé da view - *Padrão: footer*
++ `setTemplate($boolean)` - Define se o cabeçalho e rodapé serão inclusos - *Padrão: true*
++ `setAssets($string, $string | $array)` - Define arquivos CSS ou JS customizados para a view
++ `setTitle($string)` - Define o título da view
 
 *O código resultante seria:*
-<?=syntaxHighlight('
+```  {.brush:php}
 	<?php
 
     class ProdutosController extends \HXPHP\System\Controller
@@ -72,11 +57,11 @@ Estas são as opções disponíveis para configurar uma view:
       }
 
 	}
-');?>
+```
 ----
 <h3 id="enviando-dados-para-a-view">Enviando dados para a *View*</h3>
 
-<?=syntaxHighlight('
+```  {.brush:php}
 	<?php
 
     class ProdutosController extends \HXPHP\System\Controller
@@ -92,11 +77,10 @@ Estas são as opções disponíveis para configurar uma view:
       }
 
 	}
-');?>
+```
 
 Na *view* todos estes dados são extraídos e atribuídos em variáveis com o sufixo `view_`. No exemplo acima, as variáveis disponíveis na view seriam:
-<ul>
-	<li>$view_mensagem</li>
-	<li>$view_usuario</li>
-	<li>$view_facebook</li>
-</ul>
+
++ $view_mensagem
++ $view_usuario
++ $view_facebook
