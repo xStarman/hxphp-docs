@@ -20,10 +20,10 @@ Os demais argumentos informados no método `load('Helpers\NomeDoHelper', $param1
   
       public function indexAction()
       {
-      	$this->load(\'Helpers\NomeDoHelper\', \'param1\', \'param2\');
-      	$this->load(\'Modules\NomeDoModulo\', \'param1\', \'param2\');
-      	$this->load(\'Storage\Session\');
-      	$this->load(\'Services\Email\');
+      	$this->load('Helpers\NomeDoHelper', 'param1', 'param2');
+      	$this->load('Modules\NomeDoModulo', 'param1', 'param2');
+      	$this->load('Storage\Session');
+      	$this->load('Services\Email');
 
       	$this->nomedohelper->metodo();
       	echo $this->nomedomodulo->propriedade;
