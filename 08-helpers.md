@@ -1,11 +1,18 @@
 ----
-<h2 id="helpers">*Helpers*</h2>
+## *Helpers* {#helpers}
+
 Esta seção aborda os *Helpers*.
+
 ----
-<h3 id="o-que-sao-helpers">O que são *Helpers*?</h3>
+
+### O que são *Helpers*? {#o-que-sao-helpers}
+
 Os *Helpers* são componentes auxiliares. Na verdade, os *Helpers* são criados com o objetivo de armazenar funções comuns que podem ser utilizadas nas *views*.
+
 ----
-<h3 id="alert-helper">Alert Helper</h3>
+
+### Alert Helper {#alert-helper}
+
 Um dos *helpers* nativos do HXPHP Framework é o **Alert Helper** que trata-se de um componente auxiliar para a exibição de mensagens de aviso, erro, sucesso e afins.
 
 Para utilizar este *helper* é necessário passar um *array* como parâmetro no construtor. Este deve conter a seguinte estrutura:
@@ -50,7 +57,7 @@ O método `getAlert()` é inserido na *view* e geralmente é encontrado em cabe�
 É válido ressaltar que o template HTML renderizado pode ser editado. Os arquivos encontram-se na pasta `src/HXPHP/System/Helpers/templates/Alert/`.
 
 ----
-<h3 id="menu-helper">Menu Helper</h3>
+### Menu Helper {#menu-helper}
 
 Outro *helper* nativo é o **Menu Helper** que tem a função de renderizar um menu customizado mediante o nível de acesso do usuário.
 
