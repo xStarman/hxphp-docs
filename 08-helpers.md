@@ -83,6 +83,8 @@ Exemplo de configuração para definir dois menus (o primeiro para usuários com
       ),
       'Usuários/users' => '%baseURI%/usuarios/listar/'
     ), 'administrator');
+
+
     $configs->env->development->menu->setMenus(array(
       'Home/home' => '%siteURL%/home',
       'Projetos/briefcase' => '%baseURI%/projetos/listar/'
@@ -98,10 +100,15 @@ array(
   'Menu Sem Dropdown/codigo-icone-font-awesome-sem-prefixo' => 'http://www.link-absoluto.com',
   'Usuários/users' => '%baseURI%/link-relativo',
   'Menu Com Dropdown/home' => array(
-    'Submenu/briefcase' => '%baseURI%/link-relativo'
+    'Submenu/briefcase' => '%baseURI%/link-relativo',
+    'Submenu #2/users' => '%baseURI%/link-relativo'
   )
 )
 ```
++ É possível utilizar os coringas `%baseURI%` e `%siteURL%` que são substituídos pelo valor da configuração `baseURI` e pelo endereço do site, respectivamente;
++ A ferramenta [Font Awesome](http://fontawesome.io/) foi utilizada nos ícones que acompanham os títulos nos menus e submenus, e;
++ O prefixo `fa` utilizado para a exibição dos ícones é inserido nativamente.
+
 
 Este *helper* necessita de uma configuração em seu código para definir os níveis de acesso e seus respectivos menus e links. Para tal, acesse o arquivo `src/HXPHP/System/Helpers/Menu.php` e altere o conteúdo do método `setMenu()` mediante a sua necessidade.
 
