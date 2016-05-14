@@ -157,15 +157,16 @@ O código resultante seria:
           $this->configs
         );
       }
-
-	}
+    }
 ```
 
+#### Renderizando o menu
 
-Após 'setar' o menu utiliza-se o método `getMenu()` para renderizar o HTML, que pode ser configurado no código do próprio *helper*.
+Após configurar e carregar o *helper* na *action* desejada, será possível renderizar o menu na *view*. Para tal, utilize o método `getMenu($access_level)`.
 
-
-O código resultante seria:
+Exemplos:
 ```php
-<?php echo $this->menu->getMenu(); ?>
+  <?php 
+    echo $this->menu->getMenu(); //Menu neutro
+    echo $this->menu->getMenu('administrator'); // Menu para o $access_level = administrator
 ```
