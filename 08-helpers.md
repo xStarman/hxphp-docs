@@ -61,7 +61,7 @@ O método `getAlert()`, responsável pela renderização do alerta, é inserido 
 
 O **Menu Helper** tem a função de renderizar um menu customizado mediante o nível de acesso do usuário.
 
-Diferentemente do *Alert Helper*, que trabalha com templates, este conta com um módulo específico de configuração. Portanto, antes de utilizá-lo, é necessário verificar se o módulo encontra-se registrado.
+Diferentemente do *Alert Helper*, que trabalha com templates, este conta com um módulo específico de configuração. Portanto, antes de utilizá-lo, é necessário verificar se o módulo está registrado.
 
 #### Recursos do módulo de configuração
 
@@ -76,20 +76,32 @@ Exemplo de configuração para definir dois menus (o primeiro para usuários com
 ```php
     $configs->env->development->menu->setMenus(array(
       'Home/home' => '%siteURL%',
-      'Projetos/briefcase' => '%baseURI%projetos/listar/',
+      'Projetos/briefcase' => '%baseURI/%projetos/listar/',
       'Clientes/users' => array(
         'Listar todos/users' => '%baseURI%',
-        'Tipos de clientes/users' => '%baseURI%clientes/tipos'
+        'Tipos de clientes/users' => '%baseURI/%clientes/tipos'
       ),
-      'Usuários/users' => '%baseURI%usuarios/listar/'
+      'Usuários/users' => '%baseURI%/usuarios/listar/'
     ), 'administrator');
     $configs->env->development->menu->setMenus(array(
-      'Home/home' => '%siteURL%home',
-      'Projetos/briefcase' => '%baseURI%projetos/listar/'
+      'Home/home' => '%siteURL%/home',
+      'Projetos/briefcase' => '%baseURI%/projetos/listar/'
     ));
 ```
-Arquivo: `app/config.php`
 
+Observações:
++ O método suporta 2 argumentos: *(array)* $menus e *(string)* $access_level;
++ O segundo argumento é opcional, isto é, também é possível definir um menu sem um nível de acesso para páginas públicas e afins;
++ O *array* com os menus é padronizado da seguinte forma:
+```php
+array(
+  'Menu Sem Dropdown/codigo-icone-font-awesome-sem-prefixo' => 'http://www.link-absoluto.com',
+  'Usuários/users' => '%baseURI%/link-relativo',
+  'Menu Com Dropdown/home' => array(
+    'Submenu/briefcase' => '%baseURI%/link-relativo'
+  )
+)
+```
 
 Este *helper* necessita de uma configuração em seu código para definir os níveis de acesso e seus respectivos menus e links. Para tal, acesse o arquivo `src/HXPHP/System/Helpers/Menu.php` e altere o conteúdo do método `setMenu()` mediante a sua necessidade.
 
