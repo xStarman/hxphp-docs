@@ -138,13 +138,9 @@ Exemplo com todas as possíveis configurações do menu:
 
 O exemplo acima está com todos os valores padrão, portanto, caso necessite customizar o seu menu, insira **apenas as configurações que deseja alterar** o valor padrão.
 
-Este *helper* necessita de uma configuração em seu código para definir os níveis de acesso e seus respectivos menus e links. Para tal, acesse o arquivo `src/HXPHP/System/Helpers/Menu.php` e altere o conteúdo do método `setMenu()` mediante a sua necessidade.
+#### Carregando o Menu Helper no Controller
 
-
-Após configurar, injete o *Menu Helper* no controller e informe três argumentos para seu construtor: `O nível do usuário`, `o controller atual` e `a base dos links`.
-
-
-Caso queira um menu genérico é só informar um valor qualquer no primeiro argumento. Para resgatar o controller atual utilize: `$this->request->controller` e para obter a baseURI: `$this->configs->baseURI`.
+Este *helper* requer duas dependências no construtor: `Request` e `Configs`.
 
 
 O código resultante seria:
@@ -156,10 +152,9 @@ O código resultante seria:
       public function indexAction()
       {
         $this->load(
-        	'Helpers\Menu',
-        	null,
-        	$this->request->controller,
-        	$this->configs->baseURI
+          'Helpers\Menu',
+          $this->request,
+          $this->configs
         );
       }
 
