@@ -1,21 +1,21 @@
 ----
 ## *Helpers* {#helpers}
 
-Esta seção aborda os *Helpers*.
+Esta seção aborda os *Helpers* nativos do HXPHP.
 
 ----
 
 ### O que são *Helpers*? {#o-que-sao-helpers}
 
-Os *Helpers* são componentes auxiliares. Na verdade, os *Helpers* são criados com o objetivo de armazenar funções comuns que podem ser utilizadas nas *views*.
+Os *Helpers* são componentes auxiliares. Em suma, são objetos que desempenham funções nas `views`.
 
 ----
 
 ### Alert Helper {#alert-helper}
 
-Um dos *helpers* nativos do HXPHP Framework é o **Alert Helper** que trata-se de um componente auxiliar para a exibição de mensagens de aviso, erro, sucesso e afins.
+O **Alert Helper** é um componente auxiliar que é responsável pela exibição de mensagens de aviso, erro, sucesso e afins.
 
-Para utilizar este *helper* é necessário passar um *array* como parâmetro no construtor. Este deve conter a seguinte estrutura:
+Para utilizar este *helper* é necessário passar um *array* como parâmetro no construtor, que deve conter a seguinte estrutura:
 
 ```php
     array(
@@ -39,22 +39,22 @@ O código resultante seria:
       	$alerta = array(
       		'success',
       		'Uhuul! Produto cadastrado com sucesso!',
-      		'O produto j&aacute; est&aacute; dispon&iacute;vel para seus clientes.'
+      		'O produto já está disponível para seus clientes.'
       	);
 
       	$this->load('Helpers\Alert', $alerta);
 
-      	var_dump($this->alert->getAlert());
+      	var_dump($this->alert->getAlert()); // ou
+        echo $this->alert;
       }
 
 	}
 ```
 
 
-O método `getAlert()` é inserido na *view* e geralmente é encontrado em cabeçalhos para evitar a repetição de códigos.
+O método `getAlert()`, responsável pela renderização do alerta, é inserido na *view* e geralmente é encontrado em cabeçalhos para evitar a repetição de códigos.
 
-
-É válido ressaltar que o template HTML renderizado pode ser editado. Os arquivos encontram-se na pasta `src/HXPHP/System/Helpers/templates/Alert/`.
+É válido ressaltar que o alerta renderizado é gerado a partir de um template localizado na pasta: `src/HXPHP/System/Helpers/Alert/templates/`.
 
 ----
 ### Menu Helper {#menu-helper}
@@ -96,5 +96,5 @@ Após 'setar' o menu utiliza-se o método `getMenu()` para renderizar o HTML, qu
 
 O código resultante seria:
 ```php
-    <?php echo $this->menu->getMenu(); ?>
+<?php echo $this->menu->getMenu(); ?>
 ```
