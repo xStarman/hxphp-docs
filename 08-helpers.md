@@ -109,6 +109,34 @@ array(
 + A ferramenta [Font Awesome](http://fontawesome.io/) foi utilizada nos ícones que acompanham os títulos nos menus e submenus, e;
 + O prefixo `fa` utilizado para a exibição dos ícones é inserido nativamente.
 
+##### Customizando o menu
+
+Exemplo com todas as possíveis configurações do menu:
+```php
+    $configs->env->development->menu->setMenus(array(
+      'container' => false, // Tag container (opcional). Ex: nav
+      'container_id' => '',
+      'container_class' => '',
+      'menu_id' => 'menu',
+      'menu_class' => 'menu',
+      'menu_item_class' => 'menu-item',
+      'menu_item_active_class' => 'active',
+      'menu_item_dropdown_class' => 'dropdown',
+      'link_before' => '<span>', // Conteúdo anterior ao título
+      'link_after' => '</span>', // Conteúdo posterior ao título
+      'link_class' => 'menu-link',
+      'link_active_class' => 'menu-active-link',
+      'link_dropdown_class' => 'dropdown-toggle',
+      'link_dropdown_attrs' => array(
+        'data-toggle' => 'dropdown' // Data Atributos para ativação do dropdown
+      ),
+      'dropdown_class' => 'dropdown-menu',
+      'dropdown_item_class' => 'dropdown-item',
+      'dropdown_item_active_class' => 'active'
+    ));
+```
+
+O exemplo acima está com todos os valores padrão, portanto, caso necessite customizar o seu menu, insira **apenas as configurações que deseja alterar** o valor padrão.
 
 Este *helper* necessita de uma configuração em seu código para definir os níveis de acesso e seus respectivos menus e links. Para tal, acesse o arquivo `src/HXPHP/System/Helpers/Menu.php` e altere o conteúdo do método `setMenu()` mediante a sua necessidade.
 
