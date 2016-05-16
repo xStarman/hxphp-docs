@@ -1,12 +1,12 @@
 ----
 
-<h2 id="http">*HTTP*</h2>
+## *HTTP* {#http}
 
-Nesta seção você ir&aacute; conhecer o processo de obtenção de dados via requisições HTTP.
+Nesta seção você irá conhecer o processo de obtenção de dados via requisições HTTP.
 
 ----
 
-<h3 id="request">HTTP Request</h3>
+### HTTP Request {#request}
 
 Para a obtenção de dados de requisições como **POST** e **GET** utiliza-se o objeto injetado *Request*.
 
@@ -19,16 +19,18 @@ O objeto *Request* contém os seguintes métodos:
 + `setCustomFilters()`;
 + `get()`;
 + `post()`;
++ `server()`;
 + `getMethod()`;
++ `isValid()`;
 + `isPost()`;
 + `isGet()`;
 + `isPut()`, e;
 + `isHead()`.
 
-O método `setCustomFilters()` tem o objetivo de customizar os filtros de tratamento aplicados aos dados das requisições. Para tal, é necessário informar um ***array* associativo** com o índice igual ao nome do campo e o valor com a constante de filtro. Leia: <a href="http://php.net/manual/en/filter.filters.sanitize.php" target="_blank">http://php.net/manual/en/filter.filters.sanitize.php</a>. Por padrão, o filtro aplicado em todos os dados é o `FILTER_SANITIZE_STRING` que evita a injeção de códigos HTML.
+O método `setCustomFilters()` tem o objetivo de customizar os filtros de tratamento aplicados aos dados das requisições. Para tal, é necessário informar um ***array* associativo** com o índice igual ao nome do campo e o valor com a constante de filtro. Leia: [http://php.net/manual/en/filter.filters.sanitize.php](http://php.net/manual/en/filter.filters.sanitize.php). Por padrão, o filtro aplicado em todos os dados é o `FILTER_SANITIZE_STRING` que evita a injeção de códigos HTML.
 
 
-  O código resultante seria:
+O código resultante seria:
 ```php
   <?php
     class ProdutosController extends \HXPHP\System\Controller
