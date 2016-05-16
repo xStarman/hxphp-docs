@@ -11,16 +11,21 @@ Nesta seção você irá conhecer o processo de obtenção de dados via requisi�
 Para a obtenção de dados de requisições como **POST** e **GET** utiliza-se o objeto injetado *Request*.
 
 
-As vantagens são muitas, dentre as principais pode-se listar a maior segurança, visto que os dados são tratados nativamente.
+As vantagens são muitas, dentre as principais pode-se destacar a maior segurança, visto que os dados são tratados nativamente.
 
 
 O objeto *Request* contém os seguintes métodos:
 
+**Customização**
 + `setCustomFilters()`;
+
+**Obtenção de dados**
 + `get()`;
 + `post()`;
 + `server()`;
 + `getMethod()`;
+ 
+**Validação**
 + `isValid()`;
 + `isPost()`;
 + `isGet()`;
