@@ -52,6 +52,30 @@ O código resultante seria:
     }
 ```
 
+### Trabalhando com checkboxes, multiple selects e semelhantes
+
+Como o filtro padrão trata os dados para `STRING`, isto afeta a obtenção de dados de campos que enviam múltiplas informações. A solução é bem simples:
+
+```php
+  <?php
+    class ProdutosController extends \HXPHP\System\Controller
+    {
+
+        public function salvarAction()
+        {
+            $this->request->setCustomFilters(array(
+                'id' => array(
+                    'filter' => FILTER_SANITIZE_NUMBER_INT,
+                    'flags' => FILTER_FORCE_ARRAY
+                )
+            ));
+
+        }
+
+    }
+```
+
+No exemplo acima, utilizou-se a *flag* `FILTER_FORCE_ARRAY`, que irá sempre retornar um array no campo definido, em conjunto com um filtro para tratar os valores para números inteiros.
 
 Já os métodos `get()` e `post()` retornam os dados filtrados, sendo que é possível retornar todo o conteúdo ou apenas um dado específico.
 
