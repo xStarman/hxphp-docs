@@ -44,7 +44,7 @@ O código resultante seria:
         public function salvarAction()
         {
             $this->request->setCustomFilters(array(
-                'valor' => FILTER_SANITIZE_NUMBER_FLOAT
+                'namedoinput' => FILTER_SANITIZE_NUMBER_FLOAT
             ));
 
         }
@@ -89,12 +89,13 @@ O código resultante seria:
         public function salvarAction()
         {
             $this->request->setCustomFilters(array(
-                'valor' => FILTER_SANITIZE_NUMBER_FLOAT
+                'nomedocampo' => FILTER_SANITIZE_NUMBER_FLOAT
             ));
 
-            $this->request->post(); //Array com todos os dados enviados
-            $this->request->post('valor'); //Apenas o conte&uacute;do do campo valor
-
+            print_r($this->request->post()); //Array com todos os dados enviados via POST
+            echo $this->request->post('nomedocampo'); //Apenas o conteúdo do campo valor
+            
+            echo $this->request->server('SERVER_NAME');
         }
 
     }
