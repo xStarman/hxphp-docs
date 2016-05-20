@@ -13,14 +13,10 @@ Para trabalhar com sessões no HXPHP Framework é necessário utilizar os recurs
         {
             $this->load('Storage\Session');
 
-            $this->session->set('key', 'value');
-            echo $this->session->get('key');
-            $this->session->clear('key');
-            print_r($this->session->exists('key'));
+            $this->session->set('key', 'value'); //Cria uma sessão
+            echo $this->session->get('key'); //Seleciona uma sessão
+            $this->session->clear('key'); //Exclui uma sessão
+            print_r($this->session->exists('key')); //Verifica a existência de uma sessão
         }
     }
 ```
-+ `set($name, $value)` - Cria uma sessão;
-+ `get($name)` - Seleciona uma sessão;
-+ `exists($name)` - Verifica a existência de uma sessão, e;
-+ `clear($name)` - Exclui uma sessão.
