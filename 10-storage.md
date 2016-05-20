@@ -4,7 +4,7 @@
 
 ### Sessões
 
-Para trabalhar com sessões no HXPHP Framework é necessário utilizar os recursos de *Storage*. Para tal, utiliza-se o objeto *Session* que contém os seguintes métodos:
+Para trabalhar com sessões é necessário utilizar os recursos de *Storage*. Para tal, utiliza-se o objeto *Session* que contém os seguintes métodos:
 
 ```php
     class ProdutosController
@@ -23,7 +23,7 @@ Para trabalhar com sessões no HXPHP Framework é necessário utilizar os recurs
 
 ### Cookies
 
-Para trabalhar com *cookies* no HXPHP Framework é necessário utilizar os recursos de *Storage*. Para tal, utiliza-se o objeto *Cookie* que contém os seguintes métodos:
+Para trabalhar com *cookies* utiliza-se o objeto *Cookie* que contém os seguintes métodos:
 
 ```php
     class ProdutosController
