@@ -20,3 +20,22 @@ Para trabalhar com sessões no HXPHP Framework é necessário utilizar os recurs
         }
     }
 ```
+
+### Cookies
+
+Para trabalhar com *cookies* no HXPHP Framework é necessário utilizar os recursos de *Storage*. Para tal, utiliza-se o objeto *Cookie* que contém os seguintes métodos:
+
+```php
+    class ProdutosController
+    {
+        public function listarAction()
+        {
+            $this->load('Storage\Cookie');
+
+            $this->cookie->set('key', 'value', '31556926');
+            echo $this->cookie->get('key');
+            $this->cookie->clear('key');
+            print_r($this->cookie->exists('key'));
+        }
+    }
+```
