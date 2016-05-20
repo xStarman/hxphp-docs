@@ -32,10 +32,10 @@ Para trabalhar com *cookies* no HXPHP Framework é necessário utilizar os recur
         {
             $this->load('Storage\Cookie');
 
-            $this->cookie->set('key', 'value', '31556926');
-            echo $this->cookie->get('key');
-            $this->cookie->clear('key');
-            print_r($this->cookie->exists('key'));
+            $this->cookie->set('key', 'value', '31556926'); //Cria um cookie ($name, $value, $time)
+            echo $this->cookie->get('key'); //Seleciona um cookie
+            $this->cookie->clear('key'); //Verifica a existência do cookie
+            print_r($this->cookie->exists('key')); //Exclui um cookie
         }
     }
 ```
