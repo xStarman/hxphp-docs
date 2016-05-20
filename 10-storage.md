@@ -13,10 +13,10 @@ Para trabalhar com sessões é necessário utilizar os recursos de *Storage*. Pa
         {
             $this->load('Storage\Session');
 
-            $this->session->set('key', 'value'); //Cria uma sessão
-            echo $this->session->get('key'); //Seleciona uma sessão
-            $this->session->clear('key'); //Exclui uma sessão
-            print_r($this->session->exists('key')); //Verifica a existência de uma sessão
+            $this->session->set('name', 'value'); //Cria uma sessão
+            echo $this->session->get('name'); //Seleciona uma sessão
+            $this->session->clear('name'); //Exclui uma sessão
+            print_r($this->session->exists('name')); //Verifica a existência de uma sessão
         }
     }
 ```
@@ -32,10 +32,10 @@ Para trabalhar com *cookies* utiliza-se o objeto *Cookie* que contém os seguint
         {
             $this->load('Storage\Cookie');
 
-            $this->cookie->set('key', 'value', '31556926'); //Cria um cookie ($name, $value, $time)
-            echo $this->cookie->get('key'); //Seleciona um cookie
-            $this->cookie->clear('key'); //Verifica a existência do cookie
-            print_r($this->cookie->exists('key')); //Exclui um cookie
+            $this->cookie->set('name', 'value', '31556926'); //Cria um cookie ($name, $value, $time)
+            echo $this->cookie->get('name'); //Seleciona um cookie
+            $this->cookie->clear('name'); //Verifica a existência do cookie
+            print_r($this->cookie->exists('name')); //Exclui um cookie
         }
     }
 ```
