@@ -1,13 +1,14 @@
 ----
-<h2 id="modulos">*Módulos*</h2>
+## *Módulos* {#modulos}
 
 Nesta seção você irá conhecer os módulos.
 ----
-<h3 id="o-que-sao-modulos">O que são Módulos?</h3>
+### O que são Módulos? {#o-que-sao-modulos}
 
 Módulos são basicamente plugins, ou seja, são bibliotecas de códigos que tem o objetivo de adicionar recursos para os componentes do framework.
+
 ----
-<h3 id="message-module">*Message Module*</h3>
+### *Message Module* {#message-module}
 
 O único módulo nativo do framework é o **Message Module**. Este módulo é responsável por gerenciar todas as mensagens de erro, aviso, sucesso e afins de todos os serviços do framework, sendo que também pode ser utilizado em outros componentes.
 
