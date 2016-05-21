@@ -60,7 +60,7 @@ Nota-se que existem três estruturas principais:
 + Messages, e;
 + Alerts.
 
-A estrutura **description** deve conter a descrição do template. Já a estrutura **messages** deve acomodar mensagens que serão enviadas por e-mail. E, por fim, a estrutura **alerts** deve acomodar as mensagens que serão renderizadas pelo <a href="#alert-helper">Alert Helper</a>.
+A estrutura **description** deve conter a descrição do template. Já a estrutura **messages** deve acomodar mensagens que serão enviadas por e-mail. E, por fim, a estrutura **alerts** deve acomodar as mensagens que serão renderizadas pelo [Alert Helper](#alert-helper).
 
 As estruturas **messages** e **alerts** contém seções pré-definidas, que são elas:
 
@@ -86,7 +86,7 @@ Para retornar o conteúdo de uma mensagem|alerta é necessário utilizar o segui
   $this->messages->alerts->getByCode('conta-em-uso');
 ```
 
-Executando o código acima tem-se como retorno um *array* no formato necessário para ser interpretado pelo <a href="#alert-helper">Alert Helper</a>.
+Executando o código acima tem-se como retorno um *array* no formato necessário para ser interpretado pelo [Alert Helper](#alert-helper).
 
 Perceba que `{alerts}` é uma variável, ou seja, trata-se da estrutura que você deseja utilizar. No template anteriormente apresentado, pode-se observar duas estruturas: *messages* e *alerts*.
 
