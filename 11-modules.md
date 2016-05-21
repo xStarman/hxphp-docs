@@ -13,7 +13,7 @@ O único módulo nativo do framework é o **Message Module**. Este módulo é re
 
 Para utilizar este módulo é necessário, antes de tudo, criar um template de mensagens no formato JSON. Este arquivo deve ser salvo na pasta `src/HXPHP/System/Modules/Messages/templates/`. Veja o exemplo do template `auth.json`:
 
-```php
+```json
   {
     "description" : "Template de mensagens para o serviço de autenticação",
     "messages" : {
@@ -77,7 +77,7 @@ O código resultante seria:
   $messages = new Messages('auth');
   //ou
   $this->load('Modules\Messages', 'auth');
-  ```
+```
 
 Para retornar o conteúdo de uma mensagem|alerta é necessário utilizar o seguinte caminho:
 
