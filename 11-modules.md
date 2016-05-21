@@ -19,34 +19,34 @@ Para utilizar este módulo é necessário, antes de tudo, criar um template de m
     "messages" : {
         "usuario-bloqueado" : {
             "subject" : "Acesso bloqueado por excesso de tentativas",
-            "message" : "Ol&aacute; %s, <br /> Seu acesso foi bloqueado pelo excesso de tentativas, contate o administrador para liberação. Lembre-se de que esse recurso &eacute; para sua segurança, caso necess&aacute;rio solicite um novo acesso para evitar transtornos futuros."
+            "message" : "Olá %s, <br /> Seu acesso foi bloqueado pelo excesso de tentativas, contate o administrador para liberação. Lembre-se de que esse recurso é para sua segurança, caso necessário solicite um novo acesso para evitar transtornos futuros."
         }
     },
     "alerts" : {
         "conta-em-uso" : {
             "style"   : "danger",
             "title"   : "Ops! Conta em uso!",
-            "message" : "Esta conta j&aacute; est&aacute; registrada e sendo utilizada no momento!"
+            "message" : "Esta conta já está registrada e sendo utilizada no momento!"
         },
         "tentativas-esgotando" : {
             "style"   : "warning",
             "title"   : "Ops! Verifique com cuidado os dados!",
-            "message" : "Suas tentativas estão acabando, voc&ecirc; s&oacute; tem %s tentativa(s)! Ap&oacute;s exceder esse número seu acesso s&oacute; ser&aacute; liberado atrav&eacute;s da aprovação do administrador!"
+            "message" : "Suas tentativas estão acabando, você só tem %s tentativa(s)! Após exceder esse número seu acesso só será liberado através da aprovação do administrador!"
         },
         "dados-incorretos" : {
             "style"   : "info",
             "title"   : "Ops! Dados incorretos!",
-            "message" : "Não foi poss&iacute;vel realizar a autenticação, confira seus dados!"
+            "message" : "Não foi possível realizar a autenticação, confira seus dados!"
         },
         "usuario-bloqueado" : {
             "style"   : "danger",
-            "title"   : "Ops! Usu&aacute;rio bloqueado!",
-            "message" : "Não foi poss&iacute;vel realizar a autenticação, pois este usu&aacute;rio encontra-se bloqueado no sistema, contate o administrador para liberação!"
+            "title"   : "Ops! Usuário bloqueado!",
+            "message" : "Não foi possível realizar a autenticação, pois este usuário encontra-se bloqueado no sistema, contate o administrador para liberação!"
         },
         "usuario-inexistente" : {
             "style"   : "danger",
             "title"   : "Ops! Dados incorretos!",
-            "message" : "Não foi poss&iacute;vel realizar a autenticação, confira seus dados!"
+            "message" : "Não foi possível realizar a autenticação, confira seus dados!"
         }
     }
   }
