@@ -36,7 +36,7 @@ Configuração na prática:
       <?php
         // app/config.php
       	...
-      	$configs->env->development->auth->setURLs('/sistema/home/', '/sistema/login/');
+      	$configs->env->development->auth->setURLs(/sistema/home/, /sistema/login/);
       	...
 ```
 	
@@ -53,7 +53,7 @@ Configuração na prática:
             parent::__construct($configs);
 
                 $this->load(
-				'Services\Auth',
+				Services\Auth,
 				$configs->auth->after_login,
 				$configs->auth->after_logout,
 				true
@@ -69,7 +69,7 @@ Configuração na prática:
 
 		public function logarAction()
 		{
-			$this->auth->login(1, 'brunosantos');
+			$this->auth->login(1, brunosantos);
 		}
 
 		public function sairAction()
@@ -103,10 +103,10 @@ Após executar o método `send()` ele retornará um booleano com o status do pro
 
             public function comprarAction()
             {
-            $this->load('Services\Email');
-            $status = $this->email->send('fulano@email.com.br', 'Compra realizada com sucesso!', 'Mensagem', array(
-            	'remetente' => $this->configs->mail->from,
-            	'email' => $this->configs->mail->from_mail
+            $this->load(Services\Email);
+            $status = $this->email->send(fulano@email.com.br, Compra realizada com sucesso!, Mensagem, array(
+            	remetente => $this->configs->mail->from,
+            	email => $this->configs->mail->from_mail
             ));
 
             }
@@ -119,15 +119,13 @@ Após executar o método `send()` ele retornará um booleano com o status do pro
 
 O serviço de redefinição de senhas também é extremamente simples e conta com apenas três métodos:
 
-- `setLink($link)` - Define o link;
-- `sendRecoveryLink($name, $email)` - Envia a mensagem de redefinição de senha, e;
-- `getMessage()` - Retorna as mensagens do template **password-recovery.json**.
++ `setLink($link)` - Define o link;
++ `sendRecoveryLink($name, $email)` - Envia a mensagem de redefinição de senha, e;
++ `getMessage()` - Retorna as mensagens do template **password-recovery.json**.
 
-
-
-  Serviço na prática:
+Serviço na prática:
 ```php
-      <?php
+    <?php
         class EsqueciASenhaController extends \HXPHP\System\Controller
         {
 
@@ -137,10 +135,10 @@ O serviço de redefinição de senhas também é extremamente simples e conta co
 
             public function enviarAction()
             {
-            $this->load('PasswordRecovery');
-			$this->passwordrecovery->setLink(SITE.'esqueci-a-senha/redefinir/');
+            $this->load(PasswordRecovery);
+			$this->passwordrecovery->setLink(SITE.esqueci-a-senha/redefinir/);
 
-			$user = User::find_by_username($this->request->post('username'));
+			$user = User::find_by_username($this->request->post(username));
 			$callback_message = $this->passwordrecovery->sendRecoveryLink($user->full_name, $user->email);
 
             }
@@ -154,7 +152,8 @@ O serviço de redefinição de senha além de enviar o link disponibiliza o toke
 
 Obtenção do TOKEN:
 ```php
-      $token = $this->passwordrecovery->token; ');?>
+      $token = $this->passwordrecovery->token;
+```
 
 ----
 <h3 id="servico-de-sessao">Serviço de Sessão</h3>
@@ -163,4 +162,6 @@ O serviço de sessão tem a única finalidade de iniciar a sessão do PHP de for
 
 
   Serviço na prática:
-```php\HXPHP\System\Services\StartSession::sec_session_start(); ');?>
+```php
+	\HXPHP\System\Services\StartSession::sec_session_start();
+```
