@@ -1,15 +1,15 @@
 ----
-<h2 id="servicos">Serviços</h2>
+## Serviços {#servicos}
 
 Nesta seção você irá conhecer os serviços nativos do HXPHP Framework.
 
 ----
-<h3 id="o-que-sao-servicos">O que são Serviços?</h3>
+### O que são Serviços? {#o-que-sao-servicos}
 
 Serviços são objetos que executam uma ação específica, ou seja, o serviço de autenticação tem como objetivo autenticar o usuário e assim por diante. Os serviços do HXPHP Framework são armazenados na pasta `src/HXPHP/System/Services/`.
 
-<hr class="col-md-12" id="servicos-lista">
-<h3 id="servico-de-autenticacao">Serviço de Autenticação</h3>
+----
+### Serviço de Autenticação {#servicos-lista}
 
 Um dos serviços do HXPHP Framework é o responsável pela autenticação. Ele contém os seguintes métodos:
 
@@ -19,15 +19,11 @@ Um dos serviços do HXPHP Framework é o responsável pela autenticação. Ele c
 + `login_check()` - Verifica se o usuário está autenticado, e;
 + `getUserId()` - Retorna o Id do usuário autenticado.
 
-
-
 Este serviço conta com 3 parâmetros de configuração no método construtor. Sendo eles, respectivamente:
 
 + URL de redirecionamento após o login bem sucedido;
 + URL de redirecionamento após o logout, e;
 + Booleano que determina se o redirecionamento será automático no método `login(...);`.
-
-
 
 Para facilitar a configuração deste serviço existe um módulo de configuração. Portanto, em vez de setar os valores repetidamente em todos os carregamentos do serviço, pode-se centralizar no arquivo de configuração `app/config.php`.
 
@@ -36,7 +32,7 @@ Configuração na prática:
       <?php
         // app/config.php
       	...
-      	$configs->env->development->auth->setURLs(/sistema/home/, /sistema/login/);
+      	$configs->env->development->auth->setURLs('/sistema/home/', '/sistema/login/');
       	...
 ```
 	
@@ -50,40 +46,39 @@ Configuração na prática:
       
             public function __construct($configs)
             {
-            parent::__construct($configs);
+            	parent::__construct($configs);
 
                 $this->load(
-				Services\Auth,
-				$configs->auth->after_login,
-				$configs->auth->after_logout,
-				true
-			);
+					'Services\Auth',
+					$configs->auth->after_login,
+					$configs->auth->after_logout,
+					true
+				);
 			
-			// Páginas públicas
-			$this->auth->redirectCheck(true);
+				// Páginas públicas
+				$this->auth->redirectCheck(true);
 
-			// Páginas privadas
-			//$this->auth->redirectCheck();
+				// Páginas privadas
+				//$this->auth->redirectCheck();
             }
 
+			public function logarAction()
+			{
+				$this->auth->login(1, 'brunosantos');
+			}
 
-		public function logarAction()
-		{
-			$this->auth->login(1, brunosantos);
-		}
-
-		public function sairAction()
-		{
-			$this->auth->logout();
-		}
+			public function sairAction()
+			{
+				$this->auth->logout();
+			}
         }
 ```
 
 
-Este serviço geralmente trabalha em conjunto com o <em>model</em> de usuários e autentica somente após todas as validações obterem sucesso.
+Este serviço geralmente trabalha em conjunto com o *model* de usuários e autentica somente após todas as validações obterem sucesso.
 
 ----
-<h3 id="servico-de-e-mail">Serviço de E-mail</h3>
+### Serviço de E-mail {#servico-de-e-mail}
 
 O serviço de e-mail é um dos mais simples presentes no HXPHP Framework, ele contém apenas um método `send()` que necessita dos seguintes parâmetros:
 
@@ -95,7 +90,7 @@ O serviço de e-mail é um dos mais simples presentes no HXPHP Framework, ele co
 Após executar o método `send()` ele retornará um booleano com o status do processo.
 
 
-  Serviço na prática:
+Serviço na prática:
 ```php
       <?php
         class ProdutosController extends \HXPHP\System\Controller
@@ -103,10 +98,10 @@ Após executar o método `send()` ele retornará um booleano com o status do pro
 
             public function comprarAction()
             {
-            $this->load(Services\Email);
-            $status = $this->email->send(fulano@email.com.br, Compra realizada com sucesso!, Mensagem, array(
-            	remetente => $this->configs->mail->from,
-            	email => $this->configs->mail->from_mail
+            $this->load('Services\Email');
+            $status = $this->email->send('fulano@email.com.br', 'Compra realizada com sucesso!', 'Mensagem', array(
+            	'remetente' => $this->configs->mail->from,
+            	'email' => $this->configs->mail->from_mail
             ));
 
             }
@@ -115,7 +110,7 @@ Após executar o método `send()` ele retornará um booleano com o status do pro
 ```
 
 ----
-<h3 id="servico-de-redefinicao-de-senhas">Serviço de Redefinição de Senhas</h3>
+### Serviço de Redefinição de Senhas {#servico-de-redefinicao-de-senhas}
 
 O serviço de redefinição de senhas também é extremamente simples e conta com apenas três métodos:
 
@@ -128,17 +123,12 @@ Serviço na prática:
     <?php
         class EsqueciASenhaController extends \HXPHP\System\Controller
         {
-
-            public function indexAction()
-            {
-            }
-
             public function enviarAction()
             {
-            $this->load(PasswordRecovery);
-			$this->passwordrecovery->setLink(SITE.esqueci-a-senha/redefinir/);
+            $this->load('PasswordRecovery');
+			$this->passwordrecovery->setLink(SITE . 'esqueci-a-senha/redefinir/');
 
-			$user = User::find_by_username($this->request->post(username));
+			$user = User::find_by_username($this->request->post('username'));
 			$callback_message = $this->passwordrecovery->sendRecoveryLink($user->full_name, $user->email);
 
             }
@@ -152,11 +142,11 @@ O serviço de redefinição de senha além de enviar o link disponibiliza o toke
 
 Obtenção do TOKEN:
 ```php
-      $token = $this->passwordrecovery->token;
+    $token = $this->passwordrecovery->token;
 ```
 
 ----
-<h3 id="servico-de-sessao">Serviço de Sessão</h3>
+### Serviço de Sessão {#servico-de-sessao}
 
 O serviço de sessão tem a única finalidade de iniciar a sessão do PHP de forma personalizada, para tal, utiliza-se o método estático `sec_session_start()`.
 
