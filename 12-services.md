@@ -11,34 +11,42 @@ Serviços são objetos que executam uma ação específica, ou seja, o serviço 
 ----
 ### Serviço de Autenticação {#servicos-lista}
 
-Um dos serviços do HXPHP Framework é o responsável pela autenticação. Ele contém os seguintes métodos:
+Este serviço contém os seguintes métodos:
 
 + `login($user_id, $username)` - Autentica o usuário;
 + `logout()` - Exclui sessões de autenticação;
-+ `redirectCheck($public_page)` - Redireciona o usuário;
++ `redirectCheck($public_page)` - Redireciona o usuário mediante condições;
 + `login_check()` - Verifica se o usuário está autenticado, e;
 + `getUserId()` - Retorna o Id do usuário autenticado.
 
-Este serviço conta com 3 parâmetros de configuração no método construtor. Sendo eles, respectivamente:
+Este serviço conta com 4 parâmetros de configuração no método construtor. Sendo eles, respectivamente:
 
 + URL de redirecionamento após o login bem sucedido;
-+ URL de redirecionamento após o logout, e;
-+ Booleano que determina se o redirecionamento será automático no método `login(...);`.
++ URL de redirecionamento após o logout;
++ *(Opcional)* Booleano que determina se o redirecionamento será automático no método `login(...);` e `logout()`, e;
++ *(Opcional)* Subpasta que permite diferenciar autenticações para múltiplas aplicações.
 
 Para facilitar a configuração deste serviço existe um módulo de configuração. Portanto, em vez de setar os valores repetidamente em todos os carregamentos do serviço, pode-se centralizar no arquivo de configuração `app/config.php`.
 
 Configuração na prática:
 ```php
-      <?php
-        // app/config.php
-      	...
-      	$configs->env->development->auth->setURLs('/sistema/home/', '/sistema/login/');
-      	...
+	$configs->env->development->auth->setURLs(
+		'/hxphp/home/', 
+		'/hxphp/login/'
+	);
+	$configs->env->development->auth->setURLs(
+		'/hxphp/admin/home/', 
+		'/hxphp/admin/login/', 
+		'admin'
+	);
 ```
-	
 
+O módulo de configuração suporta 3 parâmetros:
++ URL after login;
++ URL after logout, e;
++ *(Opcional)* Subpasta.
 
-  Serviço na prática:
+Após definir todas as configurações, carregue o serviço no controller:
 ```php
       <?php
         class LoginController extends \HXPHP\System\Controller
@@ -50,9 +58,10 @@ Configuração na prática:
 
                 $this->load(
 					'Services\Auth',
-					$configs->auth->after_login,
-					$configs->auth->after_logout,
-					true
+					$this->configs->auth->after_login,
+					$this->configs->auth->after_logout,
+					true,
+					$this->request->subfolder
 				);
 			
 				// Páginas públicas
@@ -98,11 +107,11 @@ Serviço na prática:
 
             public function comprarAction()
             {
-            $this->load('Services\Email');
-            $status = $this->email->send('fulano@email.com.br', 'Compra realizada com sucesso!', 'Mensagem', array(
-            	'remetente' => $this->configs->mail->from,
-            	'email' => $this->configs->mail->from_mail
-            ));
+	            $this->load('Services\Email');
+	            $status = $this->email->send('fulano@email.com.br', 'Compra realizada com sucesso!', 'Mensagem', array(
+	            	'remetente' => $this->configs->mail->from,
+	            	'email' => $this->configs->mail->from_mail
+	            ));
 
             }
 
@@ -125,11 +134,15 @@ Serviço na prática:
         {
             public function enviarAction()
             {
-            $this->load('PasswordRecovery');
-			$this->passwordrecovery->setLink(SITE . 'esqueci-a-senha/redefinir/');
+	            $this->load('PasswordRecovery');
+				$this->passwordrecovery->setLink(SITE . 'esqueci-a-senha/redefinir/');
 
-			$user = User::find_by_username($this->request->post('username'));
-			$callback_message = $this->passwordrecovery->sendRecoveryLink($user->full_name, $user->email);
+				$user = User::find_by_username($this->request->post('username'));
+				
+				$callback_message = $this->passwordrecovery->sendRecoveryLink(
+					$user->full_name,
+					$user->email
+				);
 
             }
 
