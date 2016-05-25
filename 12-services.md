@@ -147,10 +147,21 @@ Serviço na prática:
             public function comprarAction()
             {
 	            $this->load('Services\Email');
-	            $status = $this->email->send('fulano@email.com.br', 'Compra realizada com sucesso!', 'Mensagem', array(
-	            	'remetente' => $this->configs->mail->from,
-	            	'email' => $this->configs->mail->from_mail
-	            ));
+	            $this->email->setFrom($this->configs->mail->getFrom());
+
+	            $compraComSucesso = $this->email->send(
+	            	'fulano@email.com.br',
+	            	'Compra realizada com sucesso!',
+	            	'Mensagem',
+	            	[],
+	            	false
+	            );
+
+	            $outroEmail = $this->email->send(
+	            	'fulano@email.com.br',
+	            	'Outro e-mail',
+	            	'Mensagem'
+	            );
 
             }
 
