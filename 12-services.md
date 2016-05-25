@@ -90,7 +90,7 @@ Este serviço geralmente trabalha em conjunto com o *model* de usuários e auten
 ----
 ### Serviço de E-mail {#servico-de-e-mail}
 
-O serviço de e-mail também conta um módulo de configuração. Este módulo conta com dois métodos:
+O serviço de e-mail também conta um módulo de configuração. Este módulo contém dois métodos:
 
 + `setFrom(array $from)`, e;
 + `getFrom()`.
@@ -104,6 +104,27 @@ Exemplo de configuração:
 		'from_mail' => 'email@remetente.com.br'
 	]);
 ```
+
+O serviço contém dois métodos:
+
++ `setFrom(array $from)`, e;
++ `send(...)`.
+
+O método `setFrom()` do **módulo de configuração** tem os objetivos de definir as credenciais globais e tornar estes valores disponíveis no controller. Já o método do serviço é que definirá realmente qual será a credencial utilizada, isto é, tanto é possível utilizar as credenciais do módulo com o método `getFrom()` como também definir um valor diferente.
+
+Exemplo de uso:
+```php
+	$this->load('Services\Email');
+
+	$this->email->setFrom([
+		'from' => 'Remetente',
+		'from_mail' => 'email@remetente.com.br'
+	]); 
+	// ou
+	
+	$this->email->setFrom($this->configs->mail->getFrom());
+```
+
 
 + E-mail para qual será enviada a mensagem;
 + Assunto da mensagem;
