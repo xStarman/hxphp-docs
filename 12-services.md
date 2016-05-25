@@ -119,17 +119,21 @@ Exemplo de uso:
 	$this->email->setFrom([
 		'from' => 'Remetente',
 		'from_mail' => 'email@remetente.com.br'
-	]); 
+	]);
+
 	// ou
 	
 	$this->email->setFrom($this->configs->mail->getFrom());
 ```
 
 
+Já o método `send()`, responsável pelo envio, suporta os seguintes parâmetros:
+
 + E-mail para qual será enviada a mensagem;
 + Assunto da mensagem;
-+ Mensagem, e;
-+ Array com Remetente e E-mail do remetente.
++ Mensagem;
++ *(Opcional)* Credenciais, e;
++ Tipo do e-mail (Padrão: `true`; Caso seja setado como `false` o e-mail será enviado sem tags HTML).
 
 Após executar o método `send()` ele retornará um booleano com o status do processo.
 
