@@ -90,7 +90,20 @@ Este serviço geralmente trabalha em conjunto com o *model* de usuários e auten
 ----
 ### Serviço de E-mail {#servico-de-e-mail}
 
-O serviço de e-mail é um dos mais simples presentes no HXPHP Framework, ele contém apenas um método `send()` que necessita dos seguintes parâmetros:
+O serviço de e-mail também conta um módulo de configuração. Este módulo conta com dois métodos:
+
++ `setFrom(array $from)`, e;
++ `getFrom()`.
+
+O primeiro tem a função de definir o nome e e-mail do remetente e o segundo de obter estes valores.
+
+Exemplo de configuração:
+```php
+	$configs->env->development->mail->setFrom([
+		'from' => 'Remetente',
+		'from_mail' => 'email@remetente.com.br'
+	]);
+```
 
 + E-mail para qual será enviada a mensagem;
 + Assunto da mensagem;
