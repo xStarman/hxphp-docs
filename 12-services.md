@@ -19,14 +19,14 @@ Este serviço contém os seguintes métodos:
 + `login_check()` - Verifica se o usuário está autenticado, e;
 + `getUserId()` - Retorna o Id do usuário autenticado.
 
-Este serviço conta com 4 parâmetros de configuração no método construtor. Sendo eles, respectivamente:
+Este serviço suporta 4 parâmetros de configuração no método construtor:
 
 + URL de redirecionamento após o login bem sucedido;
 + URL de redirecionamento após o logout;
 + *(Opcional)* Booleano que determina se o redirecionamento será automático no método `login(...);` e `logout()`, e;
 + *(Opcional)* Subpasta que permite diferenciar autenticações para múltiplas aplicações.
 
-Para facilitar a configuração deste serviço existe um módulo de configuração. Portanto, em vez de setar os valores repetidamente em todos os carregamentos do serviço, pode-se centralizar no arquivo de configuração `app/config.php`.
+Para facilitar a configuração deste serviço existe um módulo de configuração. Portanto, ao invés de setar os valores repetidamente em todos os carregamentos do serviço, pode-se centralizar no arquivo de configuração `app/config.php`.
 
 Configuração na prática:
 ```php
@@ -42,6 +42,7 @@ Configuração na prática:
 ```
 
 O módulo de configuração suporta 3 parâmetros:
+
 + URL after login;
 + URL after logout, e;
 + *(Opcional)* Subpasta.
