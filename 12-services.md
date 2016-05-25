@@ -49,39 +49,40 @@ O módulo de configuração suporta 3 parâmetros:
 
 Após definir todas as configurações, carregue o serviço no controller:
 ```php
-      <?php
-        class LoginController extends \HXPHP\System\Controller
-        {
+    <?php
+
+    class LoginController extends \HXPHP\System\Controller
+    {
       
-            public function __construct($configs)
-            {
-            	parent::__construct($configs);
+    	public function __construct($configs)
+    	{
+            parent::__construct($configs);
 
-                $this->load(
-					'Services\Auth',
-					$this->configs->auth->after_login,
-					$this->configs->auth->after_logout,
-					true,
-					$this->request->subfolder
-				);
-			
-				// Páginas públicas
-				$this->auth->redirectCheck(true);
+            $this->load(
+				'Services\Auth',
+				$this->configs->auth->after_login,
+				$this->configs->auth->after_logout,
+				true,
+				$this->request->subfolder
+			);
+		
+			// Páginas públicas
+			$this->auth->redirectCheck(true);
 
-				// Páginas privadas
-				//$this->auth->redirectCheck();
-            }
+			// Páginas privadas
+			//$this->auth->redirectCheck();
+    	}
 
-			public function logarAction()
-			{
-				$this->auth->login(1, 'brunosantos');
-			}
+		public function logarAction()
+		{
+			$this->auth->login(1, 'brunosantos');
+		}
 
-			public function sairAction()
-			{
-				$this->auth->logout();
-			}
-        }
+		public function sairAction()
+		{
+			$this->auth->logout();
+		}
+    }
 ```
 
 
@@ -140,32 +141,32 @@ Após executar o método `send()` ele retornará um booleano com o status do pro
 
 Serviço na prática:
 ```php
-      <?php
-        class ProdutosController extends \HXPHP\System\Controller
+    <?php
+
+    class ProdutosController extends \HXPHP\System\Controller
+    {
+
+        public function comprarAction()
         {
+            $this->load('Services\Email');
+            $this->email->setFrom($this->configs->mail->getFrom());
 
-            public function comprarAction()
-            {
-	            $this->load('Services\Email');
-	            $this->email->setFrom($this->configs->mail->getFrom());
+            $compraComSucesso = $this->email->send(
+            	'fulano@email.com.br',
+            	'Compra realizada com sucesso!',
+            	'Mensagem',
+            	[],
+            	false
+            );
 
-	            $compraComSucesso = $this->email->send(
-	            	'fulano@email.com.br',
-	            	'Compra realizada com sucesso!',
-	            	'Mensagem',
-	            	[],
-	            	false
-	            );
-
-	            $outroEmail = $this->email->send(
-	            	'fulano@email.com.br',
-	            	'Outro e-mail',
-	            	'Mensagem'
-	            );
-
-            }
-
+            $outroEmail = $this->email->send(
+            	'fulano@email.com.br',
+            	'Outro e-mail',
+            	'Mensagem'
+            );
         }
+
+    }
 ```
 
 ----
