@@ -174,14 +174,11 @@ Serviço na prática:
 ----
 ### Serviço de Redefinição de Senhas {#servico-de-redefinicao-de-senhas}
 
-O serviço de redefinição de senhas também é extremamente simples e conta com apenas um método:
+Este serviço também é extremamente simples e requer um único parâmetro no método construtor que é o link para o controller e action responsáveis pelo processo de redefinir a senha.
 
-+ `setLink($link)` - Define o link de redefinição.
+Este link deve ser absoluto e ter **obrigatoriamente** uma `/` no final, pois o serviço concatena este valor com o token gerado.
 
-Porém, conta com duas propriedades extremamente importantes para o processo de redefinição:
-
-+ `token`, e;
-+ `link`.
+O token é uma propriedade pública e deve ser utilizado para validar a autenticidade da redefinição durante todo o processo.
 
 Serviço na prática:
 ```php
@@ -190,15 +187,13 @@ Serviço na prática:
         {
             public function enviarAction()
             {
-	            $this->load('PasswordRecovery');
-				$this->passwordrecovery->setLink(SITE . 'esqueci-a-senha/redefinir/');
-
-				$user = User::find_by_username($this->request->post('username'));
-				
-				$callback_message = $this->passwordrecovery->sendRecoveryLink(
-					$user->full_name,
-					$user->email
+				$this->load(
+					'Services\PasswordRecovery',
+					$this->configs->site->url . $this->configs->baseURI . 'recuperar/redefinir/'
 				);
+
+				echo $this->passwordrecovery->link;
+				echo $this->passwordrecovery->token;
 
             }
 
@@ -206,7 +201,7 @@ Serviço na prática:
 ```
 
 
-O serviço de redefinição de senha além de enviar o link disponibiliza o token gerado para ser armazenado no banco de dados para validação futura e conclusão do processo.
+O token gerado deverá ser armazenado no banco de dados para validação futura e conclusão do processo.
 
 
 Obtenção do TOKEN:
