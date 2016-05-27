@@ -13,7 +13,7 @@ Serviços são objetos que executam uma ação específica, ou seja, o serviço 
 
 Este serviço contém os seguintes métodos:
 
-+ `login($user_id, $username)` - Autentica o usuário;
++ `login($user_id, $username, $user_role)` - Autentica o usuário;
 + `logout()` - Exclui sessões de autenticação;
 + `redirectCheck($public_page)` - Redireciona o usuário mediante condições;
 + `roleCheck(array $roles)` - Verifica o nível de acesso e redireciona caso seja necessário;
