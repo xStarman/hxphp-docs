@@ -219,5 +219,5 @@ O serviço de sessão tem a única finalidade de iniciar a sessão do PHP de for
 
   Serviço na prática:
 ```php
-	\HXPHP\System\Services\StartSession::sec_session_start();
+	\HXPHP\System\Services\StartSession\StartSession::sec_session_start();
 ```
