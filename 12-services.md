@@ -16,6 +16,7 @@ Este serviço contém os seguintes métodos:
 + `login($user_id, $username)` - Autentica o usuário;
 + `logout()` - Exclui sessões de autenticação;
 + `redirectCheck($public_page)` - Redireciona o usuário mediante condições;
++ `roleCheck(array $roles)` - Verifica o nível de acesso e redireciona caso seja necessário;
 + `login_check()` - Verifica se o usuário está autenticado, e;
 + `getUserId()` - Retorna o Id do usuário autenticado.
 
