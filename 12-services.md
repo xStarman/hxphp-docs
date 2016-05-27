@@ -174,11 +174,14 @@ Serviço na prática:
 ----
 ### Serviço de Redefinição de Senhas {#servico-de-redefinicao-de-senhas}
 
-O serviço de redefinição de senhas também é extremamente simples e conta com apenas três métodos:
+O serviço de redefinição de senhas também é extremamente simples e conta com apenas um método:
 
-+ `setLink($link)` - Define o link;
-+ `sendRecoveryLink($name, $email)` - Envia a mensagem de redefinição de senha, e;
-+ `getMessage()` - Retorna as mensagens do template **password-recovery.json**.
++ `setLink($link)` - Define o link de redefinição.
+
+Porém, conta com duas propriedades extremamente importantes para o processo de redefinição:
+
++ `token`, e;
++ `link`.
 
 Serviço na prática:
 ```php
