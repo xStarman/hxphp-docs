@@ -77,7 +77,7 @@ Após definir todas as configurações, carregue o serviço no controller:
 
 		public function logarAction()
 		{
-			$this->auth->login(1, 'brunosantos');
+			$this->auth->login(1, 'brunosantos', 'user');
 		}
 
 		public function sairAction()
