@@ -17,7 +17,8 @@ Este serviço contém os seguintes métodos:
 + `logout()` - Exclui sessões de autenticação;
 + `redirectCheck($public_page)` - Redireciona o usuário mediante condições;
 + `roleCheck(array $roles)` - Verifica o nível de acesso e redireciona caso seja necessário;
-+ `login_check()` - Verifica se o usuário está autenticado, e;
++ `login_check()` - Verifica se o usuário está autenticado;
++ `getUserRole()` - Retorna o nível de acesso do usuário autenticado, e;
 + `getUserId()` - Retorna o Id do usuário autenticado.
 
 Este serviço suporta 4 parâmetros de configuração no método construtor:
