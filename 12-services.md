@@ -215,10 +215,11 @@ Obtenção do TOKEN:
 O serviço de sessão tem a única finalidade de iniciar a sessão do PHP de forma personalizada, para tal, utiliza-se o método estático `sec_session_start()`.
 
 
-  Serviço na prática:
+Serviço na prática:
 ```php
 	\HXPHP\System\Services\StartSession\StartSession::sec_session_start();
 ```
+
 ----
 ### Serviço Simple cURL {#servico-simple-curl}
 
@@ -226,16 +227,30 @@ O serviço de sessão tem a única finalidade de iniciar a sessão do PHP de for
 
 O framework contém um serviço que executa uma das aplicações mais comuns desta biblioteca. 
 
-O serviço *Simple cUrl* contém um único método estático (`connect()`) que suporta 3 parâmetros:
+O serviço *Simple cURL* contém um único método estático (`connect()`) que suporta 3 parâmetros:
 
 + URL alvo;
 + *(Opcional)* $post;
 + *(Opcional)* $get;
 
+O funcionamento consiste em acessar a URL alvo e enviar os parâmetros via POST ou GET mediante o preenchimento dos respectivos parâmetros.
+
+Algumas observações:
+
++ O serviço conta com a configuração `CURLOPT_FOLLOWLOCATION` definida como `true`, isto é, a cURL está configurada para seguir qualquer redirecionamento, e;
++ A configuração `CURLOPT_RETURNTRANSFER` também está definida como `true`, isto é, o valor é retornado ao invés de impresso.
 
 
-
-  Serviço na prática:
+Serviço na prática:
 ```php
-	\HXPHP\System\Services\SimplecURL\SimplecURL::connect();
+	$retorno = \HXPHP\System\Services\SimplecURL\SimplecURL::connect(
+		'http://www.hxphp.com.br/produtos/novo',
+		array(
+			'name' => 'Curso Dominando o HXPHP Framework',
+			'description' => 'Lorem Ipsum'
+		),
+		array(
+			'token' => '1RSG6K2MV0PS2LVM01PD'
+		)
+	);
 ```
