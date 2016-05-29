@@ -220,12 +220,22 @@ O serviço de sessão tem a única finalidade de iniciar a sessão do PHP de for
 	\HXPHP\System\Services\StartSession\StartSession::sec_session_start();
 ```
 ----
-### Serviço de Sessão {#servico-de-sessao}
+### Serviço Simple cURL {#servico-simple-curl}
 
-O serviço de sessão tem a única finalidade de iniciar a sessão do PHP de forma personalizada, para tal, utiliza-se o método estático `sec_session_start()`.
+É muito comum a necessidade de obter e enviar dados para URLs externas através de código. Existem diferentes formas de realizar esta tarefa e uma delas é com o uso da biblioteca cURL. 
+
+O framework contém um serviço que executa uma das aplicações mais comuns desta biblioteca. 
+
+O serviço *Simple cUrl* contém um único método estático (`connect()`) que suporta 3 parâmetros:
+
++ URL alvo;
++ *(Opcional)* $post;
++ *(Opcional)* $get;
+
+
 
 
   Serviço na prática:
 ```php
-	\HXPHP\System\Services\StartSession\StartSession::sec_session_start();
+	\HXPHP\System\Services\SimplecURL\SimplecURL::connect();
 ```
