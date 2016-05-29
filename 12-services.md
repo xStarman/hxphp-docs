@@ -219,3 +219,13 @@ O serviço de sessão tem a única finalidade de iniciar a sessão do PHP de for
 ```php
 	\HXPHP\System\Services\StartSession\StartSession::sec_session_start();
 ```
+----
+### Serviço de Sessão {#servico-de-sessao}
+
+O serviço de sessão tem a única finalidade de iniciar a sessão do PHP de forma personalizada, para tal, utiliza-se o método estático `sec_session_start()`.
+
+
+  Serviço na prática:
+```php
+	\HXPHP\System\Services\StartSession\StartSession::sec_session_start();
+```
