@@ -1,9 +1,9 @@
 ----
-<h2 id="tools">*Tools*</h2>
+## *Tools* {#tools}
 
-Nesta seção você ir&aacute; conhecer o objeto auxiliar *Tools*.
+Nesta seção você irá conhecer o objeto auxiliar *Tools*.
 ----
-<h3 id="tools">Métodos auxiliares</h3>
+### Métodos auxiliares {#metodos-auxiliares}
 
 O objeto *Tools* é uma ferramenta de apoio geral, ou seja, trata-se de um objeto que contém métodos comuns com funções de filtro, tratamento, criptografia e afins.
 
@@ -15,4 +15,6 @@ Por padrão, este objeto contém os seguintes métodos <strong>estáticos</stron
 
 
 Tools na prática:
-<?=syntaxHighlight('\HXPHP\System\Tools::hashHX($post[\'password\']); ');?>
+```php
+	\HXPHP\System\Tools::hashHX($post['password']);
+```
