@@ -11,9 +11,9 @@ Por padrão, este objeto contém os seguintes métodos **estáticos**:
 
 + `dd($data, $dump = false)` - Exibe os dados;
 + `hashHX($password, $salt = null)` - Criptografa a senha do usuário no padrão HXPHP;
-+ `filteredName($input)` - Processo de tratamento para o mecanismo MVC;
-+ `filteredFileName($input)`, e;
-+ `decamelize($cameled, [$sep])`;
++ `filteredName($input)` - Aplica o *camelize*;
++ `filteredFileName($input)` - Trata o nome de arquivos, e;
++ `decamelize($cameled, [$sep])` - Reverte o *camelize*;
 
 
 Tools na prática:
