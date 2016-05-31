@@ -7,7 +7,7 @@ Nesta seção você irá conhecer o objeto auxiliar *Tools*.
 
 O objeto *Tools* é uma ferramenta de apoio geral, ou seja, trata-se de um objeto que contém métodos comuns com funções de filtro, tratamento, criptografia e afins.
 
-Por padrão, este objeto contém os seguintes métodos <strong>estáticos</strong>:
+Por padrão, este objeto contém os seguintes métodos **estáticos**:
 
 + `dd($data, $dump = false)` - Exibe os dados;
 + `hashHX($password, $salt = null)` - Criptografa a senha do usuário no padrão HXPHP, e;
