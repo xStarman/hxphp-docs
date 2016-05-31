@@ -10,8 +10,10 @@ O objeto *Tools* é uma ferramenta de apoio geral, ou seja, trata-se de um objet
 Por padrão, este objeto contém os seguintes métodos **estáticos**:
 
 + `dd($data, $dump = false)` - Exibe os dados;
-+ `hashHX($password, $salt = null)` - Criptografa a senha do usuário no padrão HXPHP, e;
-+ `filteredName($input)` - Processo de tratamento para o mecanismo MVC.
++ `hashHX($password, $salt = null)` - Criptografa a senha do usuário no padrão HXPHP;
++ `filteredName($input)` - Processo de tratamento para o mecanismo MVC;
++ `filteredFileName($input)`, e;
++ `decamelize($cameled, [$sep])`;
 
 
 Tools na prática:
