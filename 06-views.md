@@ -116,4 +116,24 @@ Algumas observações:
 + O padrão para nomenclatura é que o nome do arquivo comece com "_". Ex: `_social-icons.phtml`, e;
 + É possível passar dados para as views parciais. 
 
+#### Exemplos
 
++ View parcial (app/views/partials/_message.phtml):
+```  {.brush:php}
+    <h4 class="alert alert-success">
+        <?php echo $view_msg; ?>
+    </h4>
+```
+
++ Chamada da view partial em uma view (app/views/index/index.phtml):
+```  {.brush:php}
+    <?php 
+        $this->partial('message', array(
+            'msg' => 'Uhull! Você instalou e configurou o HXPHP Framework com sucesso!'
+        )); 
+    ?>
+```
+
+O método `partial()` suporta dois parâmetros:
++ $view - Nome da view parcial sem o "_", e;
++ *(Opcional)* $params - Array associativo com dados que serão convertidos em variáveis para a view.
