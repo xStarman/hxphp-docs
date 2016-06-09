@@ -41,6 +41,7 @@ O padrão é *lowercase*. Todas as *views* de um *controller* são armazenadas e
 
 Estas são as opções disponíveis para configurar uma view:
 
++ `setPartialsDir($string)` - Define a pasta das views parciais - *Padrão: app/views/partials/*
 + `setPath($string)` - Define a pasta do arquivo - *Padrão: nome do controller*
 + `setFile($string)` - Define o nome do arquivo - *Padrão: nome da action*
 + `setHeader($string)` - Define o cabeçalho da view - *Padrão: header*
