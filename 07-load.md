@@ -12,7 +12,7 @@ Os demais argumentos informados no método `load('Helpers\NomeDoHelper', $param1
 
 
 *O código resultante seria:*
-```  {.brush:php}
+``` php
 	<?php
 
     class ProdutosController extends \HXPHP\System\Controller

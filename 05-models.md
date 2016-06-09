@@ -18,7 +18,7 @@ Agora que você já sabe o que é um *model*, deve se atentar para os detalhes n
 Para aproveitar dos benefícios do *ORM* é necessário que o *model* herde as configurações dele e, para tal, é necessário que o seu *model* seja uma extensão da classe mestre `\HXPHP\System\Model`.
 
 O código base de um *model* é:
-```  {.brush:php}
+``` php
 	<?php
 	
 	class NomeDoModel extends \HXPHP\System\Model
@@ -58,7 +58,7 @@ A questão fundamental no uso deste *ORM* está nas convenções de nomenclatura
 
 ### *Model* na prática {#model-na-pratica}
 
-```  {.brush:php}
+``` php
 	<?php
 	
 	class Product extends \HXPHP\System\Model

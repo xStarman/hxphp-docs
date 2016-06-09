@@ -51,7 +51,7 @@ Estas são as opções disponíveis para configurar uma view:
 + `setTitle($string)` - Define o título da view - *A variável $view_title recebe o valor desta configuração*
 
 *O código resultante seria:*
-```  {.brush:php}
+``` php
 	<?php
 
     class ProdutosController extends \HXPHP\System\Controller
@@ -81,7 +81,7 @@ Estas são as opções disponíveis para configurar uma view:
 ----
 ### Enviando dados para a *View* {#enviando-dados-para-a-view}
 
-```  {.brush:php}
+``` php
 	<?php
 
     class ProdutosController extends \HXPHP\System\Controller
@@ -119,14 +119,14 @@ Algumas observações:
 #### Exemplos
 
 + View parcial (app/views/partials/_message.phtml):
-```  {.brush:php}
+``` php
     <h4 class="alert alert-success">
         <?php echo $view_msg; ?>
     </h4>
 ```
 
 + Chamada da view partial em uma view (app/views/index/index.phtml):
-```  {.brush:php}
+``` php
     <?php 
         $this->partial('message', array(
             'msg' => 'Uhull! Você instalou e configurou o HXPHP Framework com sucesso!'
