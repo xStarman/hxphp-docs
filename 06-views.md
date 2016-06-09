@@ -104,3 +104,16 @@ Na *view* todos estes dados são extraídos e atribuídos em variáveis com o su
 + $view_mensagem
 + $view_usuario
 + $view_facebook
+
+----
+### Incluindo views parciais {#incluindo-views-parciais}
+
+Quando desenvolvemos um sistema complexo ou um site com muito conteúdo é bem comum existir códigos repetidos nas views. Uma alternativa é criar uma pasta qualquer dentro do diretórios das views e fazer o `include` manualmente com as funções do PHP e herdando as variáveis via chamada global.
+
+Para realizar este procedimento no HXPHP você pode criar *views parciais*. Por padrão, o diretório para armazenar estes arquivos parciais é: `app/views/partials`. É válido ressaltar que é possível definir um diretório diferente para um `controller` ou até mesmo para uma determinada `action`.
+
+Algumas observações:
++ O padrão para nomenclatura é que o nome do arquivo comece com "_". Ex: `_social-icons.phtml`, e;
++ É possível passar dados para as views parciais. 
+
+
