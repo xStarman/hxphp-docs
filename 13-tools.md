@@ -29,6 +29,16 @@ Um dos recursos do HXPHP mais utilizados para sistemas de cadastro e login é a 
      * array (
      *  'salt' => '...',
      *  'password' => '...'
-     * )
+     * );
      */
+```
+
+O `salt` é um valor randômico que é concatenado com a senha bruta informada para gerar o `hash`.
+
++ Gerando o `hash` para validação com um `salt` já definido:
+```php
+    $senhaCriptografada = \HXPHP\System\Tools::hashHX($post['password'], $user->salt);
+
+    if ($user->password === $senhaCriptografada['password'])
+        return 'Usuário autenticado';
 ```
