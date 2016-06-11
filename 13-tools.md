@@ -23,4 +23,12 @@ Um dos recursos do HXPHP mais utilizados para sistemas de cadastro e login é a 
 + Gerando o `hash` e o `salt`:
 ```php
 	\HXPHP\System\Tools::hashHX($post['password']);
+
+    /**
+     * Retorno:
+     * array (
+     *  'salt' => '...',
+     *  'password' => '...'
+     * )
+     */
 ```
