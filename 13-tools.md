@@ -16,7 +16,7 @@ Por padrão, este objeto contém os seguintes métodos **estáticos**:
 + `decamelize($cameled, [$sep])` - Reverte o *camelize*;
 
 
-Tools na prática:
+#### Criptografia para senhas
 ```php
 	\HXPHP\System\Tools::hashHX($post['password']);
 ```
