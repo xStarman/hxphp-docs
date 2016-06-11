@@ -17,6 +17,10 @@ Por padrão, este objeto contém os seguintes métodos **estáticos**:
 
 
 #### Criptografia para senhas
+
+Um dos recursos do HXPHP mais utilizados para sistemas de cadastro e login é a criptografia de senhas. 
+
++ Gerando o `hash` e o `salt`:
 ```php
 	\HXPHP\System\Tools::hashHX($post['password']);
 ```
