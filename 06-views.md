@@ -52,7 +52,7 @@ Estas são as opções disponíveis para configurar uma view:
 
 *O código resultante seria:*
 ``` php
-	<?php
+
 
     class ProdutosController extends \HXPHP\System\Controller
     {
@@ -82,7 +82,7 @@ Estas são as opções disponíveis para configurar uma view:
 ### Enviando dados para a *View* {#enviando-dados-para-a-view}
 
 ``` php
-	<?php
+
 
     class ProdutosController extends \HXPHP\System\Controller
     {

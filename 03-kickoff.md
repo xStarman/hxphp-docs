@@ -6,7 +6,7 @@ Esta seção aborda o funcionamento do framework e suas características.
 ### Estrutura do framework {#estrutura-do-framework}
 O HXPHP tem a seguinte estrutura de pastas:
 
-``` {.brush:php}
+```php
   /hxphp/
       app/
         controllers/

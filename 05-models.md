@@ -19,8 +19,7 @@ Para aproveitar dos benefícios do *ORM* é necessário que o *model* herde as c
 
 O código base de um *model* é:
 ``` php
-	<?php
-	
+
 	class NomeDoModel extends \HXPHP\System\Model
 	{
 		...
@@ -59,8 +58,7 @@ A questão fundamental no uso deste *ORM* está nas convenções de nomenclatura
 ### *Model* na prática {#model-na-pratica}
 
 ``` php
-	<?php
-	
+
 	class Product extends \HXPHP\System\Model
 	{
 		static function exists($product_code)

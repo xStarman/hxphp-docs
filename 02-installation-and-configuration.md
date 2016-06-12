@@ -47,7 +47,7 @@ Para criar um ambiente:
 
 <small>Conteúdo padrão de um ambiente:</small>
 
-``` {.brush:php}
+```php
 <?php
 
 namespace HXPHP\System\Configs\Environments;
@@ -72,7 +72,7 @@ Para criar um módulo é necessário salvá-lo na pasta: `/src/HXPHP/System/Conf
 
 <small>Exemplo demonstrando o registro de um módulo qualquer chamado Youtube (RegisterModules.php):</small>
 
-``` {.brush:php}
+```php
 <?php
 
 namespace HXPHP\System\Configs;
@@ -97,7 +97,7 @@ class RegisterModules
 ```
 <h5>Exemplo de configuração:</h5>
 
-``` {.brush:php}
+```php
 <?php
   //Constantes
   $configs = new HXPHP\System\Configs\Config;
@@ -164,7 +164,7 @@ O arquivo `.htaccess` é responsável pelo processo de reescrita das URLs, que �
 Portanto, edite o arquivo `.htaccess`, localizado na pasta raiz do framework, para configurar a BASE. O bloco que deve ser configurado é listado abaixo:
 
 
-``` {.brush:php}
+```php
   <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /hxphp/
@@ -179,7 +179,7 @@ Portanto, edite o arquivo `.htaccess`, localizado na pasta raiz do framework, pa
 Atente-se para os comandos: `RewriteBase` e `RewriteRule`, nota-se que ambos contém a menção do valor da `BASE_URL`, portanto, caso você tenha definido um valor customizado, altere-o. Adotando nosso exemplo anterior, tendo a `BASE_URL` igual a *administrativo*, tem-se o seguinte código:
 
 
-``` {.brush:php}
+```php
   <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /administrativo/

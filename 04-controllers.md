@@ -31,7 +31,7 @@ Após ter o arquivo salvo, começamos com o desenvolvimento de seu código, aten
 <small>*app/controllers/ProdutosController.php*</small>
 
 
-``` {.brush:php}
+```php
   <?php
 
     class ProdutosController extends \HXPHP\System\Controller
@@ -65,7 +65,7 @@ Após criar o *controller* é provável que seja necessário a criação de *act
 O código resultante do exemplo acima seria:
 
 
-``` {.brush:php}
+```php
     public function listarAction()
     {
       ...
@@ -98,7 +98,7 @@ Para resgatar estes valores, atente-se ao fato de que o parâmetro só pode ser 
 O código resultante do exemplo acima seria:
 
 
-``` {.brush:php}
+```php
     <?php
 
     class ProdutosController extends \HXPHP\System\Controller
@@ -137,7 +137,7 @@ A única regra para o uso do método construtor nos *controllers* é que seja de
 Portanto, quando criar métodos construtores siga este padrão:
 
 
-``` {.brush:php}
+```php
     class ProdutosController extends \HXPHP\System\Controller
     {
       
@@ -154,7 +154,7 @@ Portanto, quando criar métodos construtores siga este padrão:
 Caso queira utilizar os valores das configurações e até mesmo recursos como o *Request*, que utiliza as configurações como dependência, é necessário resgatar as configurações como argumento no construtor.
 
 
-``` {.brush:php}
+```php
     class ProdutosController extends \HXPHP\System\Controller
     {
       
@@ -182,7 +182,7 @@ Imagine o seguinte processo:
 Após o formulário ser processado e disparado para a *action* `**salvar**` será necessário um redirecionamento para a *action* `**listar**` e para fazermos isto utilizamos o seguinte código:
 
 
-``` {.brush:php}
+```php
     public function salvarAction()
     {
 
