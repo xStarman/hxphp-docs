@@ -32,8 +32,6 @@ Após ter o arquivo salvo, começamos com o desenvolvimento de seu código, aten
 
 
 ```php
-  
-
     class ProdutosController extends \HXPHP\System\Controller
     {
 
@@ -99,8 +97,6 @@ O código resultante do exemplo acima seria:
 
 
 ```php
-    
-
     class ProdutosController extends \HXPHP\System\Controller
     {
       public function listarAction( $pagina = 1 )

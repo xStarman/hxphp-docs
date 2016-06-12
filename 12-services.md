@@ -51,8 +51,6 @@ O módulo de configuração suporta 3 parâmetros:
 
 Após definir todas as configurações, carregue o serviço no controller:
 ```php
-    
-
     class LoginController extends \HXPHP\System\Controller
     {
       
@@ -143,8 +141,6 @@ Após executar o método `send()` ele retornará um booleano com o status do pro
 
 Serviço na prática:
 ```php
-    
-
     class ProdutosController extends \HXPHP\System\Controller
     {
 
@@ -181,9 +177,7 @@ Este link deve ser absoluto e ter **obrigatoriamente** uma `/` no final, pois o 
 O token é uma propriedade pública e deve ser utilizado para validar a autenticidade da redefinição durante todo o processo.
 
 Serviço na prática:
-```php
-    
-        class EsqueciASenhaController extends \HXPHP\System\Controller
+```php        class EsqueciASenhaController extends \HXPHP\System\Controller
         {
             public function enviarAction()
             {
