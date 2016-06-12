@@ -32,7 +32,7 @@ Após ter o arquivo salvo, começamos com o desenvolvimento de seu código, aten
 
 
 ```php
-  <?php
+  
 
     class ProdutosController extends \HXPHP\System\Controller
     {
@@ -99,7 +99,7 @@ O código resultante do exemplo acima seria:
 
 
 ```php
-    <?php
+    
 
     class ProdutosController extends \HXPHP\System\Controller
     {

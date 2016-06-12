@@ -37,7 +37,7 @@ O método `setCustomFilters()` tem o objetivo de customizar os filtros de tratam
 
 O código resultante seria:
 ```php
-  <?php
+  
     class ProdutosController extends \HXPHP\System\Controller
     {
 
@@ -57,7 +57,7 @@ O código resultante seria:
 Como o filtro padrão trata os dados para `STRING`, isto afeta a obtenção de dados de campos que enviam múltiplas informações. A solução é bem simples:
 
 ```php
-  <?php
+  
     class ProdutosController extends \HXPHP\System\Controller
     {
 
@@ -82,7 +82,7 @@ Já os métodos `get()` e `post()` retornam os dados filtrados, sendo que é pos
 
 O código resultante seria:
 ```php
-  <?php
+  
     class ProdutosController extends \HXPHP\System\Controller
     {
 

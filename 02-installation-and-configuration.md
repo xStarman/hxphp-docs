@@ -72,7 +72,7 @@ Exemplo demonstrando o registro de um módulo qualquer chamado Youtube (Register
 
   class RegisterModules
   {
-    public $modules = array();
+    public $modules = [];
 
     public function __construct()
     {
@@ -90,7 +90,7 @@ Exemplo demonstrando o registro de um módulo qualquer chamado Youtube (Register
 <h5>Exemplo de configuração:</h5>
 
 ```php
-<?php
+
   //Constantes
   $configs = new HXPHP\System\Configs\Config;
 

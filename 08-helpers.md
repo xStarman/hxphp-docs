@@ -161,7 +161,7 @@ Após configurar e carregar o *helper* na *action* desejada, será possível ren
 
 Exemplos:
 ```php
-  <?php 
+   
     echo $this->menu->getMenu(); //Menu neutro
     echo $this->menu->getMenu('administrator'); // Menu para o $access_level = administrator
 ```

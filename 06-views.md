@@ -121,13 +121,13 @@ Algumas observações:
 + View parcial (app/views/partials/_message.phtml):
 ``` php
     <h4 class="alert alert-success">
-        <?php echo $view_msg; ?>
+         echo $view_msg; ?>
     </h4>
 ```
 
 + Chamada da view partial em uma view (app/views/index/index.phtml):
 ``` php
-    <?php 
+     
         $this->partial('message', array(
             'msg' => 'Uhull! Você instalou e configurou o HXPHP Framework com sucesso!'
         )); 
