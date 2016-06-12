@@ -28,7 +28,7 @@ Agora que você já sabe o que é um *controller* e a sua importância para o fu
 Após ter o arquivo salvo, começamos com o desenvolvimento de seu código, atente-se para o exemplo abaixo que mostra o código padrão para *controllers* utilizando os exemplos acima:
 
 
-<small>*app/controllers/ProdutosController.php*</small>
+*app/controllers/ProdutosController.php*
 
 
 ```php

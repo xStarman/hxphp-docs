@@ -25,12 +25,9 @@ As configurações são divididas em dois grupos:
 + Configurações globais, e;
 + Configurações de ambiente.
 
-
 As `globais` tem como objetivo definir parâmetros que, em suma, não necessitam de alteração, pois, consistem em intervenções no funcionamento padrão do framework. Exemplos: Diretório dos controllers, diretório das views e etc.
 
-
 Já as `configurações de ambiente` são parâmetros que variam de acordo com o `ambiente atual`. O ambiente além de conter a sua configuração padrão também pode conter módulos.
-
 
 Para iniciar a configuração necessita-se instanciar o objeto `$configs = new HXPHP\System\Configs\Config`. E, após isto, é possível:
 
@@ -45,19 +42,17 @@ Para criar um ambiente:
 + Acesse a pasta `HXPHP\System\Configs\Environments`, e;
 + Crie um arquivo no padrão `EnvironmentNomeDoAmbiente`.
 
-<small>Conteúdo padrão de um ambiente:</small>
+Conteúdo padrão de um ambiente:
 
 ```php
-<?php
+  namespace HXPHP\System\Configs\Environments;
 
-namespace HXPHP\System\Configs\Environments;
+  use HXPHP\System\Configs as Configs;
 
-use HXPHP\System\Configs as Configs;
+  class EnvironmentNomeDoAmbiente extends Configs\AbstractEnvironment
+  {
 
-class EnvironmentNomeDoAmbiente extends Configs\AbstractEnvironment
-{
-
-}
+  }
 ```
 
 
@@ -70,30 +65,27 @@ Os módulos padrão de ambiente são: `Database` e `Mail`. Os módulos não são
 Para criar um módulo é necessário salvá-lo na pasta: `/src/HXPHP/System/Configs/Modules/` e **adicioná-lo na lista de módulos** do arquivo `/src/HXPHP/System/Configs/RegisterModules.php`.
 
 
-<small>Exemplo demonstrando o registro de um módulo qualquer chamado Youtube (RegisterModules.php):</small>
+Exemplo demonstrando o registro de um módulo qualquer chamado Youtube (RegisterModules.php):
 
 ```php
-<?php
+  namespace HXPHP\System\Configs;
 
-namespace HXPHP\System\Configs;
-
-class RegisterModules
-{
-  public $modules = array();
-
-  public function __construct()
+  class RegisterModules
   {
-    //Informe os nomes dos módulos em lowercase
-    $this->modules = array(
-      'database',
-      'mail',
-      'youtube'
-    );
+    public $modules = array();
 
-    return $this;
+    public function __construct()
+    {
+      //Informe os nomes dos módulos em lowercase
+      $this->modules = array(
+        'database',
+        'mail',
+        'youtube'
+      );
+
+      return $this;
+    }
   }
-}
-
 ```
 <h5>Exemplo de configuração:</h5>
 
