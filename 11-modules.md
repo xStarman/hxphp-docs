@@ -104,7 +104,7 @@ Caso queira definir uma estrutura padrão e utilizar diretamente o método `getB
 Também é possível preencher valores coringas presentes na mensagem do template (%s), para tal, é necessário informar estes parâmetros em um *array* seguindo o padrão abaixo:
 
 Template para exemplo:
-```php
+```json
   {
     "description" : "Template de mensagens para exemplo",
     "alerts" : {

@@ -8,9 +8,7 @@ Esta seção aborda a primeira das três camadas do padrão **MVC**.
 
 No padrão **MVC** existem basicamente três camadas, que são: *Model*-*View*-*Controller*. O *controller* é o intermediário entre as duas camadas restantes, ou seja, ele controla (daí o nome) todo o fluxo de informação do site/sistema.
 
-
 Em outras palavras, o *controller*, comumente chamado de **controlador**, tem como objetivo definir as propriedades da visualização (*view*), isto é, ele tem a função de condicionar, executar as regras de negócio(*models*), interpretar parâmetros, dentre muitas outras.
-
 
 Resumindo, nesta camada decide-se “se”, “o que”, “quando” e “onde” deve funcionar na nossa aplicação.
 
@@ -23,19 +21,15 @@ Agora que você já sabe o que é um *controller* e a sua importância para o fu
 + Crie um arquivo nomeado no padrão *CamelCase*; com o link desejado, sem espaços, hífens ou *underscores*; com o sufixo 'Controller', e; a extensão '.php'. Ou seja, para os exemplos acima, os controllers seriam: `ProdutosController.php` e `ListaDeProdutosController.php`;
 + Salve este arquivo na pasta: `app/controllers/`
 
-
-
 Após ter o arquivo salvo, começamos com o desenvolvimento de seu código, atente-se para o exemplo abaixo que mostra o código padrão para *controllers* utilizando os exemplos acima:
 
 
 *app/controllers/ProdutosController.php*
-
-
 ```php
-    class ProdutosController extends \HXPHP\System\Controller
-    {
+  class ProdutosController extends \HXPHP\System\Controller
+  {
 
-    }
+  }
 ```
 
 
@@ -44,8 +38,6 @@ Fique atento às seguintes características do código listado acima:
 + O nome da classe é igual ao nome do arquivo;
 + Cada *controller* é uma extensão da classe mestre `*\HXPHP\System\Controller*`, e;
 + A `indexAction()`, *action* padrão do controller, é executada automaticamente.
-
-
 
 Mas, afinal de contas o que são *actions*?
 *Actions* são os métodos públicos de um *controller*, sendo que, cada *action* é responsável por um link específico. Veremos isto com mais detalhes na próxima seção.
@@ -58,18 +50,13 @@ Após criar o *controller* é provável que seja necessário a criação de *act
 + Defina o link desejado, por exemplo: http://site.com.br/produtos/`listar`/ , e;
 + No *controller* desejado, crie um método `público` nomeado com o link desejado, sem espaços, hífens ou *underscores*; com o sufixo 'Action'.
 
-
-
 O código resultante do exemplo acima seria:
-
-
 ```php
-    public function listarAction()
-    {
-      ...
-    }
+  public function listarAction()
+  {
+    ...
+  }
 ```
-
 
 Com isto pode-se concluir que a nomenclatura dos *controllers* e *actions* está diretamente ligada às URL's escolhidas. E isto é um fator muito importante para técnicas de otimização para motores de pesquisa (SEO), dentre outras vantagens.
 
@@ -83,27 +70,22 @@ O erro 404, comumente chamado de *Error Not Found*, é um dos erros mais conheci
 
 Como já mencionado na seção de [funcionamento da URL](#funcionamento-da-url), os parâmetros que serão interpretados no controlador (*controller*) devem constar na URL, sendo que, é necessário que o *controller* e a *action* sejam definidos.
 
-
 Com estas condições atendidas, tem-se a seguinte estrutura: 
 ```
   http://site.com.br/controller/action/parametro1/parametro2/parametro3/
 ```
 
-
 Para resgatar estes valores, atente-se ao fato de que o parâmetro só pode ser interpretado pela *action* requisitada, ou seja, no exemplo: `http://site.com.br/produtos/listar/1/`, tem-se definido que a *action* `listar` do *controller* `Produtos` irá receber como `argumentos` os `parâmetros` informados.
 
-
 O código resultante do exemplo acima seria:
-
-
 ```php
-    class ProdutosController extends \HXPHP\System\Controller
+  class ProdutosController extends \HXPHP\System\Controller
+  {
+    public function listarAction( $pagina = 1 )
     {
-      public function listarAction( $pagina = 1 )
-      {
-        echo $pagina;
-      }
+      echo $pagina;
     }
+  }
 ```
 
 
@@ -112,7 +94,6 @@ Algumas observações importantes:
 + Os parâmetros devem ser declarados como argumentos do método (*action*);
 + Estes argumentos podem ser nomeados livremente, porém devem ter obrigatoriamente um valor pré-definido, por exemplo: `listarAction($categoria = '', $pagina = 1)`, e;
 + Os argumentos devem ser declarados na mesma ordem que os parâmetros.
-  
 
 Através deste mecanismo é possível ter `**N** parâmetros` e nomeá-los de forma sugestiva, o que possibilitará uma melhor experiência com seus códigos.
 
@@ -126,43 +107,37 @@ As vantagens são muitas, porém a principal que se destaca é que o conteúdo d
 
 Imagine um processo de validação de usuário autenticado, isto é, este deve prevalecer em todas as *actions* de um *controller* restrito e devido ao método construtor, o código não precisa ser repetido, uma vez que o código de validação esteja no construtor, todas as *actions* estão protegidas.
 
-
 A única regra para o uso do método construtor nos *controllers* é que seja declarado o método construtor da classe mãe, caso contrário, um irá sobrescrever o outro e isto acarretará na desconfiguração da aplicação.
 
-
 Portanto, quando criar métodos construtores siga este padrão:
-
-
 ```php
-    class ProdutosController extends \HXPHP\System\Controller
+  class ProdutosController extends \HXPHP\System\Controller
+  {
+    
+    public function __construct()
     {
-      
-      public function __construct()
-      {
-        parent::__construct();
-        ...
-      }
-
+      parent::__construct();
+      ...
     }
-```
 
+  }
+```
 
 Caso queira utilizar os valores das configurações e até mesmo recursos como o *Request*, que utiliza as configurações como dependência, é necessário resgatar as configurações como argumento no construtor.
 
-
 ```php
-    class ProdutosController extends \HXPHP\System\Controller
+  class ProdutosController extends \HXPHP\System\Controller
+  {
+    
+    public function __construct($configs)
     {
-      
-      public function __construct($configs)
-      {
-        parent::__construct($configs);
-        echo $configs->baseURI;
-        echo $configs->meumodulo->propriedade;
-        ...
-      }
-
+      parent::__construct($configs);
+      echo $configs->baseURI;
+      echo $configs->meumodulo->propriedade;
+      ...
     }
+
+  }
 ```
 
 ----
@@ -170,26 +145,22 @@ Caso queira utilizar os valores das configurações e até mesmo recursos como o
 
 É muito comum que seja necessário o processo de redirecionamento nos *controllers*.
 
-
 Imagine o seguinte processo:
 `produtos/cadastrar/ **->** produtos/salvar/ **->** produtos/listar/`
-
 
 Após o formulário ser processado e disparado para a *action* `**salvar**` será necessário um redirecionamento para a *action* `**listar**` e para fazermos isto utilizamos o seguinte código:
 
 
 ```php
-    public function salvarAction()
-    {
+  public function salvarAction()
+  {
+    if ($processo->status === true) {
 
-      if ($processo->status === true) {
-
-        /**
-         * @param string $url Especifique o link para qual a aplicação será redirecionada
-         */
-        $this->redirectTo(URL);
-
-      }
+      /**
+       + @param string $url Especifique o link para qual a aplicação será redirecionada
+       */
+      $this->redirectTo(URL);
 
     }
+  }
 ```

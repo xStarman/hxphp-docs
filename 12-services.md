@@ -53,7 +53,6 @@ Após definir todas as configurações, carregue o serviço no controller:
 ```php
     class LoginController extends \HXPHP\System\Controller
     {
-      
     	public function __construct($configs)
     	{
             parent::__construct($configs);
@@ -177,21 +176,23 @@ Este link deve ser absoluto e ter **obrigatoriamente** uma `/` no final, pois o 
 O token é uma propriedade pública e deve ser utilizado para validar a autenticidade da redefinição durante todo o processo.
 
 Serviço na prática:
-```php        class EsqueciASenhaController extends \HXPHP\System\Controller
+```php        
+    class EsqueciASenhaController extends \HXPHP\System\Controller
+    {
+        public function enviarAction()
         {
-            public function enviarAction()
-            {
-				$this->load(
-					'Services\PasswordRecovery',
-					$this->configs->site->url . $this->configs->baseURI . 'recuperar/redefinir/'
-				);
+            $this->load(
+                'Services\PasswordRecovery',
+                $this->configs->site->url . 
+                $this->configs->baseURI . 
+                'recuperar/redefinir/'
+            );
 
-				echo $this->passwordrecovery->link;
-				echo $this->passwordrecovery->token;
-
-            }
-
+            echo $this->passwordrecovery->link;
+            echo $this->passwordrecovery->token;
         }
+
+    }
 ```
 
 

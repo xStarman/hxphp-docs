@@ -12,24 +12,20 @@ Os demais argumentos informados no método `load('Helpers\NomeDoHelper', $param1
 
 
 *O código resultante seria:*
-``` php
-
-
-    class ProdutosController extends \HXPHP\System\Controller
+```php
+  class ProdutosController extends \HXPHP\System\Controller
+  {
+    public function indexAction()
     {
-  
-      public function indexAction()
-      {
-      	$this->load('Helpers\NomeDoHelper', 'param1', 'param2');
-      	$this->load('Modules\NomeDoModulo', 'param1', 'param2');
-      	$this->load('Storage\Session');
-      	$this->load('Services\Email');
+      $this->load('Helpers\NomeDoHelper', 'param1', 'param2');
+      $this->load('Modules\NomeDoModulo', 'param1', 'param2');
+      $this->load('Storage\Session');
+      $this->load('Services\Email');
 
-      	$this->nomedohelper->metodo();
-      	echo $this->nomedomodulo->propriedade;
-      	...
-      }
-
+      $this->nomedohelper->metodo();
+      echo $this->nomedomodulo->propriedade;
+      ...
+    }
 	}
 ```
 

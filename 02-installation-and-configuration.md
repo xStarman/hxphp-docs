@@ -10,7 +10,7 @@ Após vistar todos os itens da lista de requisitos, prossiga com a instalação,
 
 + Enviar os arquivos para a pasta desejada;
 + Editar o arquivo `app/config.php`, e;
-+ Editar o arquivo .htaccess.
++ Editar o arquivo `.htaccess`.
 
 ----
 

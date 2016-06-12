@@ -51,39 +51,33 @@ Estas são as opções disponíveis para configurar uma view:
 + `setTitle($string)` - Define o título da view - *A variável $view_title recebe o valor desta configuração*
 
 *O código resultante seria:*
-``` php
-
-
+```php
     class ProdutosController extends \HXPHP\System\Controller
     {
-
-      public function indexAction()
-      {
-       	$this->view->setPath('index')
-			   ->setFile('index')
-			   ->setHeader('header')
-			   ->setFooter('footer')
-			   ->setTemplate(true)
-			   ->setAssets('css', 'teste.css')
-			   ->setAssets('css', array(
-			   		'teste2.css',
-			   		'teste3.css'
-			   	))
-			   ->setAssets('js', array(
-			   		'teste2.js',
-			   		'teste3.js'
-			   	))
-			   ->setTitle('Oops! Nada encontrado!');
-      }
-
+        public function indexAction()
+        {
+            $this->view->setPath('index')
+                   ->setFile('index')
+                   ->setHeader('header')
+                   ->setFooter('footer')
+                   ->setTemplate(true)
+                   ->setAssets('css', 'teste.css')
+                   ->setAssets('css', array(
+                        'teste2.css',
+                        'teste3.css'
+                    ))
+                   ->setAssets('js', array(
+                        'teste2.js',
+                        'teste3.js'
+                    ))
+                   ->setTitle('Oops! Nada encontrado!');
+        }
 	}
 ```
 ----
 ### Enviando dados para a *View* {#enviando-dados-para-a-view}
 
-``` php
-
-
+```php
     class ProdutosController extends \HXPHP\System\Controller
     {
 
@@ -119,19 +113,17 @@ Algumas observações:
 #### Exemplos
 
 + View parcial (app/views/partials/_message.phtml):
-``` php
+```php
     <h4 class="alert alert-success">
          echo $view_msg; ?>
     </h4>
 ```
 
 + Chamada da view partial em uma view (app/views/index/index.phtml):
-``` php
-     
-        $this->partial('message', array(
-            'msg' => 'Uhull! Você instalou e configurou o HXPHP Framework com sucesso!'
-        )); 
-    ?>
+```php
+    $this->partial('message', array(
+        'msg' => 'Uhull! Você instalou e configurou o HXPHP Framework com sucesso!'
+    ));
 ```
 
 O método `partial()` suporta dois parâmetros:

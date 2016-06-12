@@ -30,7 +30,6 @@ O código resultante seria:
 ```php
   class ProdutosController extends \HXPHP\System\Controller
   {
-
     public function indexAction()
     {
 
@@ -142,17 +141,17 @@ Este *helper* requer duas dependências no construtor: `Request` e `Configs`.
 
 O código resultante seria:
 ```php
-    class ProdutosController extends \HXPHP\System\Controller
+  class ProdutosController extends \HXPHP\System\Controller
+  {
+    public function indexAction()
     {
-      public function indexAction()
-      {
-        $this->load(
-          'Helpers\Menu',
-          $this->request,
-          $this->configs
-        );
-      }
+      $this->load(
+        'Helpers\Menu',
+        $this->request,
+        $this->configs
+      );
     }
+  }
 ```
 
 #### Renderizando o menu
@@ -161,7 +160,6 @@ Após configurar e carregar o *helper* na *action* desejada, será possível ren
 
 Exemplos:
 ```php
-   
-    echo $this->menu->getMenu(); //Menu neutro
-    echo $this->menu->getMenu('administrator'); // Menu para o $access_level = administrator
+  echo $this->menu->getMenu(); //Menu neutro
+  echo $this->menu->getMenu('administrator'); // Menu para o $access_level = administrator
 ```

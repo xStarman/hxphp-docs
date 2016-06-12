@@ -10,9 +10,7 @@ Nesta seção você irá conhecer o processo de obtenção de dados via requisi�
 
 Para a obtenção de dados de requisições como **POST** e **GET** utiliza-se o objeto injetado *Request*.
 
-
 As vantagens são muitas, dentre as principais pode-se destacar a maior segurança, visto que os dados são tratados nativamente.
-
 
 O objeto *Request* contém os seguintes métodos:
 
@@ -36,17 +34,15 @@ O método `setCustomFilters()` tem o objetivo de customizar os filtros de tratam
 
 
 O código resultante seria:
-```php    class ProdutosController extends \HXPHP\System\Controller
+```php    
+    class ProdutosController extends \HXPHP\System\Controller
     {
-
         public function salvarAction()
         {
             $this->request->setCustomFilters(array(
                 'namedoinput' => FILTER_SANITIZE_NUMBER_FLOAT
             ));
-
         }
-
     }
 ```
 
@@ -54,9 +50,9 @@ O código resultante seria:
 
 Como o filtro padrão trata os dados para `STRING`, isto afeta a obtenção de dados de campos que enviam múltiplas informações. A solução é bem simples:
 
-```php    class ProdutosController extends \HXPHP\System\Controller
+```php    
+    class ProdutosController extends \HXPHP\System\Controller
     {
-
         public function salvarAction()
         {
             $this->request->setCustomFilters(array(
@@ -67,7 +63,6 @@ Como o filtro padrão trata os dados para `STRING`, isto afeta a obtenção de d
             ));
 
         }
-
     }
 ```
 
@@ -77,9 +72,9 @@ Já os métodos `get()` e `post()` retornam os dados filtrados, sendo que é pos
 
 
 O código resultante seria:
-```php    class ProdutosController extends \HXPHP\System\Controller
+```php
+    class ProdutosController extends \HXPHP\System\Controller
     {
-
         public function salvarAction()
         {
             $this->request->setCustomFilters(array(
@@ -91,9 +86,7 @@ O código resultante seria:
             
             echo $this->request->server('SERVER_NAME');
         }
-
     }
-
 ```
 
 
