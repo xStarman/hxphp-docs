@@ -18,36 +18,33 @@ O **Alert Helper** é um componente auxiliar que é responsável pela exibição
 Para utilizar este *helper* é necessário passar um *array* como parâmetro no construtor, que deve conter a seguinte estrutura:
 
 ```php
-    array(
-    	'danger', // Classes Bootstrap disponíveis: danger, warning, info, success
-    	'Título da mensagem',
-    	'Conteúdo da mensagem' // Pode ser um array com várias mensagens
-    );
+  array(
+    'danger', // Classes Bootstrap disponíveis: danger, warning, info, success
+    'Título da mensagem',
+    'Conteúdo da mensagem' // Pode ser um array com várias mensagens
+  );
 ```
 
 
 O código resultante seria:
 ```php
-	<?php
-	
-    class ProdutosController extends \HXPHP\System\Controller
+  class ProdutosController extends \HXPHP\System\Controller
+  {
+
+    public function indexAction()
     {
-  
-      public function indexAction()
-      {
 
-      	$alerta = array(
-      		'success',
-      		'Uhuul! Produto cadastrado com sucesso!',
-      		'O produto já está disponível para seus clientes.'
-      	);
+      $alerta = array(
+        'success',
+        'Uhuul! Produto cadastrado com sucesso!',
+        'O produto já está disponível para seus clientes.'
+      );
 
-      	$this->load('Helpers\Alert', $alerta);
+      $this->load('Helpers\Alert', $alerta);
 
-      	var_dump($this->alert->getAlert()); // ou
-        echo $this->alert;
-      }
-
+      var_dump($this->alert->getAlert()); // ou
+      echo $this->alert;
+    }
 	}
 ```
 
@@ -74,21 +71,21 @@ O módulo contém dois métodos:
 Exemplo de configuração para definir dois menus (o primeiro para usuários com nível de acesso igual a **administrator** e o segundo que é neutro):
 
 ```php
-    $configs->env->development->menu->setMenus(array(
-      'Home/home' => '%siteURL%',
-      'Projetos/briefcase' => '%baseURI/%projetos/listar/',
-      'Clientes/users' => array(
-        'Listar todos/users' => '%baseURI%',
-        'Tipos de clientes/users' => '%baseURI/%clientes/tipos'
-      ),
-      'Usuários/users' => '%baseURI%/usuarios/listar/'
-    ), 'administrator');
+  $configs->env->development->menu->setMenus(array(
+    'Home/home' => '%siteURL%',
+    'Projetos/briefcase' => '%baseURI/%projetos/listar/',
+    'Clientes/users' => array(
+      'Listar todos/users' => '%baseURI%',
+      'Tipos de clientes/users' => '%baseURI/%clientes/tipos'
+    ),
+    'Usuários/users' => '%baseURI%/usuarios/listar/'
+  ), 'administrator');
 
 
-    $configs->env->development->menu->setMenus(array(
-      'Home/home' => '%siteURL%/home',
-      'Projetos/briefcase' => '%baseURI%/projetos/listar/'
-    ));
+  $configs->env->development->menu->setMenus(array(
+    'Home/home' => '%siteURL%/home',
+    'Projetos/briefcase' => '%baseURI%/projetos/listar/'
+  ));
 ```
 
 Observações:
@@ -96,14 +93,14 @@ Observações:
 + O segundo argumento é opcional, isto é, também é possível definir um menu sem um nível de acesso para páginas públicas e afins;
 + O *array* com os menus é padronizado da seguinte forma:
 ```php
-array(
-  'Menu Sem Dropdown/codigo-icone-font-awesome-sem-prefixo' => 'http://www.link-absoluto.com',
-  'Usuários/users' => '%baseURI%/link-relativo',
-  'Menu Com Dropdown/home' => array(
-    'Submenu/briefcase' => '%baseURI%/link-relativo',
-    'Submenu #2/users' => '%baseURI%/link-relativo'
+  array(
+    'Menu Sem Dropdown/codigo-icone-font-awesome-sem-prefixo' => 'http://www.link-absoluto.com',
+    'Usuários/users' => '%baseURI%/link-relativo',
+    'Menu Com Dropdown/home' => array(
+      'Submenu/briefcase' => '%baseURI%/link-relativo',
+      'Submenu #2/users' => '%baseURI%/link-relativo'
+    )
   )
-)
 ```
 + É possível utilizar os coringas `%baseURI%` e `%siteURL%` que são substituídos pelo valor da configuração `baseURI` e pelo endereço do site, respectivamente;
 + A ferramenta [Font Awesome](http://fontawesome.io/) foi utilizada nos ícones que acompanham os títulos nos menus e submenus, e;
@@ -145,8 +142,6 @@ Este *helper* requer duas dependências no construtor: `Request` e `Configs`.
 
 O código resultante seria:
 ```php
-	<?php
-
     class ProdutosController extends \HXPHP\System\Controller
     {
       public function indexAction()
