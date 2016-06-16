@@ -29,14 +29,13 @@ As `globais` tem como objetivo definir parâmetros que, em suma, não necessitam
 
 Já as `configurações de ambiente` são parâmetros que variam de acordo com o `ambiente atual`. O ambiente além de conter a sua configuração padrão também pode conter módulos.
 
-Para iniciar a configuração necessita-se instanciar o objeto `$configs = new HXPHP\System\Configs\Config`. E, após isto, é possível:
+Para iniciar a configuração é necessário instanciar o objeto `$configs = new HXPHP\System\Configs\Config`. E, após isto, é possível:
 
 + Alterar as configurações globais, e/ou;
 + Adicionar e configurar ambientes.
 
 Para adicionar um ambiente: `$configs->env->add('ambiente');`. 
 Os ambientes padrão são: `development` e `production`.
-
 
 Para criar um ambiente: 
 + Acesse a pasta `HXPHP\System\Configs\Environments`, e;
@@ -87,7 +86,8 @@ Exemplo demonstrando o registro de um módulo qualquer chamado Youtube (Register
     }
   }
 ```
-<h5>Exemplo de configuração:</h5>
+
+##### Exemplo de configuração:
 
 ```php
 
@@ -148,10 +148,9 @@ Exemplo demonstrando o registro de um módulo qualquer chamado Youtube (Register
 ```
 
 ----
-<h4>Configurando o .htaccess</h4>
+#### Configurando o .htaccess
 
-O arquivo `.htaccess` é responsável pelo processo de reescrita das URLs, que é fundamental para a aplicação, ou seja, trata-se do **coração** do mecanismo MVC.
-
+O arquivo `.htaccess` é responsável pelo processo de reescrita das URLs, isto é, trata-se de um componente fundamental para a aplicação.
 
 Portanto, edite o arquivo `.htaccess`, localizado na pasta raiz do framework, para configurar a BASE. O bloco que deve ser configurado é listado abaixo:
 
@@ -167,8 +166,7 @@ Portanto, edite o arquivo `.htaccess`, localizado na pasta raiz do framework, pa
   </IfModule>
 ```
 
-
-Atente-se para os comandos: `RewriteBase` e `RewriteRule`, nota-se que ambos contém a menção do valor da `BASE_URL`, portanto, caso você tenha definido um valor customizado, altere-o. Adotando nosso exemplo anterior, tendo a `BASE_URL` igual a *administrativo*, tem-se o seguinte código:
+Atente-se para os comandos: `RewriteBase` e `RewriteRule`. Veja que ambos contém a menção do valor da `baseURI`, portanto, caso você tenha definido um valor customizado, altere-o. Adotando nosso exemplo anterior, tendo a `baseURI` igual a *administrativo*, tem-se o seguinte código:
 
 
 ```php
@@ -183,15 +181,14 @@ Atente-se para os comandos: `RewriteBase` e `RewriteRule`, nota-se que ambos con
 ```
 
 
-Para testar o sucesso da configuração, recomenda-se que acesse: 
-`http://localhost/{BASE_URL}/`
+Para testar o sucesso da configuração acesse: 
+`http://localhost/{baseURI}/`
 
 ----
 
 ### Instalando as dependências do framework {#instalando-as-dependencias}
 
 O HXPHP Framework utiliza o [Composer](https://getcomposer.org/download) para gerenciar as dependências, portanto, antes de prosseguir, certifique-se que o mesmo está instalado em sua máquina. Para isso, abra o terminal (CMD no Windows) e digite o seguinte comando: `composer --version`.
-
 
 Após constatar que o [Composer](https://getcomposer.org/download) está em pleno funcionamento, navegue até a pasta do framework e execute o comando: `composer install`.
 

@@ -22,18 +22,23 @@ O HXPHP tem a seguinte estrutura de pastas:
               Environments/
               Modules/
             Helpers/
-              templates/
             Http/
             Modules/
             Services/
             Storage/
+      templates/
+        Helpers
+          Alert
+        Modules
+          Messages
 ```
 
 A relação das funções de cada pasta pode ser conferida na lista abaixo:
   
-+ A pasta `app` é o local de desenvolvimento da sua aplicação;
-+ A pasta `public` é o local apropriado para armazenar folhas de estilos, scripts e afins, e;
-+ A pasta `src/HXPHP/System/` além de conter os arquivos de controle do framework, também acomoda os Helpers, Módulos e Serviços.
++ A pasta `app` é o local dedicado para o desenvolvimento da sua aplicação;
++ A pasta `public` é o local apropriado para armazenar folhas de estilos, scripts e afins;
++ A pasta `src/HXPHP/System/` além de conter os arquivos de controle do framework, também acomoda os Helpers, Módulos e Serviços, e;
++ A pasta `templates` é o local padrão para armazenar os templates utilizados pelos componentes do framework.
   
 ----
 ### Funcionamento da URL {#funcionamento-da-url}
@@ -50,7 +55,7 @@ Sendo que os endereços de ambos serão, respectivamente:
 + a) `http://site.com.br/`
 + b) `http://localhost/hxphp/`
   
-Agora com esses exemplos definidos é importante que você lembre-se da `BASE DA URL`, vista no começo desta documentação. O valor desta configuração de ambiente para os dois exemplos seria, respectivamente:
+Agora com esses exemplos definidos é importante que você lembre-se da `baseURI`, vista no começo desta documentação. O valor desta configuração de ambiente para os dois exemplos seria, respectivamente:
 
 + a) `/`
 + b) `/hxphp/`
@@ -62,7 +67,7 @@ Na prática, imagine os seguintes links requisitados por um usuário qualquer em
 + http://site.com.br`/`**projetos/listar/1**
 + http://localhost`/hxphp/`**projetos/listar/1**
   
-Com as situações ilustradas acima, é possível compreender claramente o processo de separação, visto que, em ambas as situações a requisição foi: `projetos/listar/1`.
+Com as situações ilustradas acima é possível compreender claramente o processo de separação, visto que, em ambas as situações a requisição foi: `projetos/listar/1`.
 
 Mas, isso não é tudo! Essa requisição é subdividida em:
   
@@ -98,7 +103,7 @@ Essa requisição é subdividida em:
 + `parâmetro(s)` -> *1*
 
 
-**Para utilizar esta funcionalidade necessita-se da existência da respectiva subpasta no diretório dos controllers. Se a subpasta não existir, o valor é automaticamente interpretado como Controller.**
+**Para utilizar esta funcionalidade é necessária a existência da respectiva subpasta no diretório dos controllers. Se a subpasta não existir, o valor é automaticamente interpretado como Controller.**
 
 Veja abaixo a estrutura necessária para reproduzir o exemplo acima:
 
@@ -118,7 +123,7 @@ Veja abaixo a estrutura necessária para reproduzir o exemplo acima:
 
 **Obs: A configuração de subpasta também se aplica às views!**
 
-O *Controller* e a *Action* tem posição fixa, já os parâmetros são infinitos, ou seja, desde que você especifique os dois primeiros valores da requisição, poderá passar quantos parâmetros desejar!
+O *Controller* e a *Action* tem posição fixa, mas os parâmetros são infinitos, ou seja, desde que você especifique os dois primeiros valores da requisição, poderá passar quantos parâmetros desejar!
 
 Exemplo:
 `http://site.com.br/controller/action/parametro1/parametro2/parametro3/parametroN`
