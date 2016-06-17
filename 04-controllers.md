@@ -17,13 +17,13 @@ Resumindo, nesta camada é decidido o “se”, “o que”, “quando” e “o
 ----
 ### Criando Controllers {#criando-controllers}
 
-Agora que você já sabe o que é um *controller* e a sua importância para o funcionamento da aplicação, pode-se finalmente criar o nosso primeiro *controller*. Para tal, siga estes passos:
+Agora que você já sabe o que é um *controller* e a sua importância para o funcionamento da aplicação, você poderá finalmente criar o seu primeiro *controller*. Para tal, siga estes passos:
 
 + Defina o link desejado (Ex: http://site.com.br/`produtos`/ ou http://site.com.br/`lista-de-produtos`/);
 + Crie um arquivo nomeado no padrão *CamelCase*; com o link desejado, sem espaços, hífens ou *underscores*; com o sufixo 'Controller', e; a extensão '.php'. Ou seja, para os exemplos acima, os controllers seriam: `ProdutosController.php` e `ListaDeProdutosController.php`;
 + Salve este arquivo na pasta: `app/controllers/`
 
-Após ter o arquivo salvo, começamos com o desenvolvimento de seu código, atente-se para o exemplo abaixo que mostra o código padrão para *controllers* utilizando os exemplos acima:
+Após salvar o arquivo, comece com o desenvolvimento de seu código e atente-se para o exemplo abaixo que mostra o código padrão para *controllers* utilizando os exemplos acima:
 
 
 *app/controllers/ProdutosController.php*
@@ -42,7 +42,7 @@ Fique atento às seguintes características do código listado acima:
 + A `indexAction()`, *action* padrão do controller, é executada automaticamente.
 
 Mas, afinal de contas o que são *actions*?
-*Actions* são os métodos públicos de um *controller*, sendo que, cada *action* é responsável por um link específico. Veremos isto com mais detalhes na próxima seção.
+*Actions* são os métodos públicos de um *controller*. Cada *action* é responsável por um link específico. Veremos isto com mais detalhes na próxima seção.
 
 ----
 ### Criando Actions {#criando-actions}
