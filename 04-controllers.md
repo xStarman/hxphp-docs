@@ -159,7 +159,7 @@ Após o formulário ser processado e disparado para a *action* `**salvar**` ser�
     if ($processo->status === true) {
 
       /**
-       + @param string $url Especifique o link para qual a aplicação será redirecionada
+       * @param string $url Especifique o link para qual a aplicação será redirecionada
        */
       $this->redirectTo(URL);
 
