@@ -47,7 +47,7 @@ Mas, afinal de contas o que são *actions*?
 ----
 ### Criando Actions {#criando-actions}
 
-Após criar o *controller* é provável que seja necessário a criação de *actions* específicas, para tal siga estes passos:
+Após criar o *controller* é provável que seja necessário a criação de *actions* específicas e, para tal, siga estes passos:
 
 + Defina o link desejado, por exemplo: http://site.com.br/produtos/`listar`/ , e;
 + No *controller* desejado, crie um método `público` nomeado com o link desejado, sem espaços, hífens ou *underscores*; com o sufixo 'Action'.
@@ -60,7 +60,7 @@ O código resultante do exemplo acima seria:
   }
 ```
 
-Com isto pode-se concluir que a nomenclatura dos *controllers* e *actions* está diretamente ligada às URL's escolhidas. E isto é um fator muito importante para técnicas de otimização para motores de pesquisa (SEO), dentre outras vantagens.
+Com isto você poderá concluir que a nomenclatura dos *controllers* e *actions* está diretamente ligada às URL's escolhidas. E isto é um fator muito importante para técnicas de otimização para motores de pesquisa (SEO), dentre outras vantagens.
 
 ----
 ### Controller NotFound {#controller-not-found}
@@ -70,14 +70,14 @@ O erro 404, comumente chamado de *Error Not Found*, é um dos erros mais conheci
 ----
 ### Utilizando parâmetros informados na URL {#utilizando-parametros}
 
-Como já mencionado na seção de [funcionamento da URL](#funcionamento-da-url), os parâmetros que serão interpretados no controlador (*controller*) devem constar na URL, sendo que, é necessário que o *controller* e a *action* sejam definidos.
+Como já mencionado na seção de [funcionamento da URL](#funcionamento-da-url), os parâmetros que serão interpretados no controlador (*controller*) devem constar na URL, ou seja, é necessário que o *controller* e a *action* sejam definidos.
 
-Com estas condições atendidas, tem-se a seguinte estrutura: 
+Com estas condições atendidas tem-se a seguinte estrutura: 
 ```
   http://site.com.br/controller/action/parametro1/parametro2/parametro3/
 ```
 
-Para resgatar estes valores, atente-se ao fato de que o parâmetro só pode ser interpretado pela *action* requisitada, ou seja, no exemplo: `http://site.com.br/produtos/listar/1/`, tem-se definido que a *action* `listar` do *controller* `Produtos` irá receber como `argumentos` os `parâmetros` informados.
+Para resgatar estes valores, atente-se ao fato de que o parâmetro só pode ser interpretado pela *action* requisitada, ou seja, no exemplo: `http://site.com.br/produtos/listar/1/`, é definido que a *action* `listar` do *controller* `Produtos` irá receber como `argumentos` os `parâmetros` informados.
 
 O código resultante do exemplo acima seria:
 ```php
@@ -94,7 +94,7 @@ O código resultante do exemplo acima seria:
 Algumas observações importantes:
 
 + Os parâmetros devem ser declarados como argumentos do método (*action*);
-+ Estes argumentos podem ser nomeados livremente, porém devem ter obrigatoriamente um valor pré-definido, por exemplo: `listarAction($categoria = '', $pagina = 1)`, e;
++ Estes argumentos podem ser nomeados livremente, porém devem ter **obrigatoriamente um valor pré-definido**, por exemplo: `listarAction($categoria = '', $pagina = 1)`, e;
 + Os argumentos devem ser declarados na mesma ordem que os parâmetros.
 
 Através deste mecanismo é possível ter `**N** parâmetros` e nomeá-los de forma sugestiva, o que possibilitará uma melhor experiência com seus códigos.
@@ -103,13 +103,13 @@ Através deste mecanismo é possível ter `**N** parâmetros` e nomeá-los de fo
 
 ### Utilizando o método construtor {#metodo-construtor}
 
-O [método construtor](http://php.net/manual/pt_BR/language.oop5.decon.php#language.oop5.decon.constructor) de uma classe é um [método mágico](http://php.net/manual/pt_BR/language.oop5.magic.php) e basicamente tem como função ser o primeiro método de um objeto a ser executado, visto que o mesmo é executado automaticamente quando é criada uma instância.
+O [método construtor](http://php.net/manual/pt_BR/language.oop5.decon.php#language.oop5.decon.constructor) de uma classe é um [método mágico](http://php.net/manual/pt_BR/language.oop5.magic.php) e basicamente tem como função ser o primeiro método de um objeto a ser executado, ou seja, é executado automaticamente quando uma instância é criada.
 
-As vantagens são muitas, porém a principal que se destaca é que o conteúdo do método construtor é dominante sobre todos os demais métodos.
+As vantagens são muitas, porém a principal é que o conteúdo do método construtor é dominante sobre todos os demais.
 
-Imagine um processo de validação de usuário autenticado, isto é, este deve prevalecer em todas as *actions* de um *controller* restrito e devido ao método construtor, o código não precisa ser repetido, uma vez que o código de validação esteja no construtor, todas as *actions* estão protegidas.
+Imagine um processo de validação de autenticação de usuários. Este processo deve prevalecer em todas as *actions* de um *controller* restrito. Com o uso do método construtor o código não precisa ser repetido.
 
-A única regra para o uso do método construtor nos *controllers* é que seja declarado o método construtor da classe mãe, caso contrário, um irá sobrescrever o outro e isto acarretará na desconfiguração da aplicação.
+A única regra para o uso do método construtor nos *controllers* é que seja declarado o método construtor da classe mãe, pois, caso contrário, um irá sobrescrever o outro e isto acarretará na desconfiguração da aplicação.
 
 Portanto, quando criar métodos construtores siga este padrão:
 ```php
