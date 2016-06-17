@@ -6,11 +6,13 @@ Esta seção aborda a primeira das três camadas do padrão **MVC**.
 ----
 ### O que são Controllers? {#o-que-sao-controllers}
 
-No padrão **MVC** existem basicamente três camadas, que são: *Model*-*View*-*Controller*. O *controller* é o intermediário entre as duas camadas restantes, ou seja, ele controla (daí o nome) todo o fluxo de informação do site/sistema.
+No padrão **MVC** existem basicamente três camadas: *Model*, *View* e *Controller*. 
+
+O *controller* é o intermediário entre as outras duas camadas, ou seja, ele controla (daí o nome) todo o fluxo de informação do site/sistema.
 
 Em outras palavras, o *controller*, comumente chamado de **controlador**, tem como objetivo definir as propriedades da visualização (*view*), isto é, ele tem a função de condicionar, executar as regras de negócio(*models*), interpretar parâmetros, dentre muitas outras.
 
-Resumindo, nesta camada decide-se “se”, “o que”, “quando” e “onde” deve funcionar na nossa aplicação.
+Resumindo, nesta camada é decidido o “se”, “o que”, “quando” e “onde” deve funcionar na nossa aplicação.
 
 ----
 ### Criando Controllers {#criando-controllers}
