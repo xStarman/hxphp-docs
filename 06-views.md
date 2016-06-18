@@ -1,7 +1,7 @@
 ----
 ## *Views* {#views}
 
-Nesta seção você irá conhecer mais uma das três camadas do padrão **MVC**.
+Nesta seção você irá conhecer a última das três camadas do padrão **MVC**.
 
 ----
 ### O que são *views*? {#o-que-sao-views}
@@ -20,7 +20,7 @@ As *views* são organizadas da seguinte forma: <br>
 
 #### Subpastas
 
-Quando o parâmetro `subfolder` é existente, isto é, atende aos requisitos mencionados na seção de Funcionamento da URL, as *views* também deverão ser organizadas nas respectivas subpastas do diretório `app/views`. 
+Quando o parâmetro `subfolder` existe, isto é, atende aos requisitos mencionados na seção de Funcionamento da URL, as *views* também deverão ser organizadas nas respectivas subpastas do diretório `app/views`. 
 
 Um exemplo para o link (`http://www.site.com.br/hxphp/admin/produtos/listar`):
 
@@ -34,15 +34,15 @@ app/
 
 #### Convenções
 
-O padrão é *lowercase*. Todas as *views* de um *controller* são armazenadas em uma pasta com o nome do *controller*. Cada view é nomeada de acordo com a *action*. Porém, é possível alterar estas configurações através do objeto **View**.
+O padrão é **lowercase**. Todas as *views* de um *controller* são armazenadas em uma pasta com o nome do *controller*. Cada view é nomeada de acordo com a *action*. Porém, é possível alterar estas configurações através do objeto **View**.
 
 ----
 ### Configurando a *View* {#configurando-a-view}
 
 Estas são as opções disponíveis para configurar uma view:
 
-+ `setPartialsDir($string)` - Define a pasta das views parciais - *Padrão: app/views/partials/*
-+ `setPath($string)` - Define a pasta do arquivo - *Padrão: nome do controller*
++ `setPartialsDir($string)` - Define o diretório das views parciais - *Padrão: app/views/partials/*
++ `setPath($string)` - Define o diretório do arquivo - *Padrão: nome do controller*
 + `setFile($string)` - Define o nome do arquivo - *Padrão: nome da action*
 + `setHeader($string)` - Define o cabeçalho da view - *Padrão: header*
 + `setFooter($string)` - Define o rodapé da view - *Padrão: footer*
@@ -93,7 +93,7 @@ Estas são as opções disponíveis para configurar uma view:
 	}
 ```
 
-Na *view* todos estes dados são extraídos e atribuídos em variáveis com o sufixo `view_`. No exemplo acima, as variáveis disponíveis na view seriam:
+Na *view* todos estes dados são extraídos e atribuídos em variáveis com o prefixo `view_`. No exemplo acima, as variáveis disponíveis na view seriam:
 
 + $view_mensagem
 + $view_usuario
@@ -104,7 +104,7 @@ Na *view* todos estes dados são extraídos e atribuídos em variáveis com o su
 
 Quando desenvolvemos um sistema complexo ou um site com muito conteúdo é bem comum existir códigos repetidos nas views. Uma alternativa é criar uma pasta qualquer dentro do diretórios das views e fazer o `include` manualmente com as funções do PHP e herdar as variáveis via chamada global.
 
-Para realizar este procedimento no HXPHP você pode criar *views parciais*. Por padrão, o diretório para armazenar estes arquivos parciais é: `app/views/partials`. É válido ressaltar que é possível definir um diretório diferente para um `controller` ou até mesmo para uma determinada `action`.
+Para realizar este procedimento no HXPHP você pode criar *views parciais*. Por padrão, o diretório para armazenar estes arquivos parciais é: `app/views/partials`. É válido ressaltar que é possível definir um diretório diferente para as parciais para um `controller` ou até mesmo para uma determinada `action`.
 
 Algumas observações:
 + O padrão para nomenclatura é que o nome do arquivo comece com "_". Ex: `_social-icons.phtml`, e;
@@ -127,5 +127,5 @@ Algumas observações:
 ```
 
 O método `partial()` suporta dois parâmetros:
-+ $view - Nome da view parcial sem o "_", e;
-+ *(Opcional)* $params - Array associativo com dados que serão convertidos em variáveis para a view.
++ `$view` - Nome da view parcial sem o "_", e;
++ *(Opcional)* `$params` - Array associativo com dados que serão convertidos em variáveis para a view.

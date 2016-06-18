@@ -8,9 +8,9 @@ Nesta seção você irá conhecer o processo de obtenção de dados via requisi�
 
 ### HTTP Request {#request}
 
-Para a obtenção de dados de requisições como **POST** e **GET** utiliza-se o objeto injetado *Request*.
+Para a obtenção de dados de requisições como **POST** e **GET** é necessário utilizar o objeto *Request*.
 
-As vantagens são muitas, dentre as principais pode-se destacar a maior segurança, visto que os dados são tratados nativamente.
+As vantagens são muitas e dentre as principais destaca-se a maior segurança, visto que os dados são tratados nativamente.
 
 O objeto *Request* contém os seguintes métodos:
 
@@ -18,6 +18,7 @@ O objeto *Request* contém os seguintes métodos:
 + `setCustomFilters()`;
 
 **Obtenção de dados**
++ `cookie()`;
 + `get()`;
 + `post()`;
 + `server()`;
@@ -66,7 +67,7 @@ Como o filtro padrão trata os dados para `STRING`, isto afeta a obtenção de d
     }
 ```
 
-No exemplo acima, utilizou-se a *flag* `FILTER_FORCE_ARRAY`, que irá sempre retornar um array no campo definido, em conjunto com um filtro para tratar os valores para números inteiros.
+No exemplo acima, utilizamos a *flag* `FILTER_FORCE_ARRAY` que irá sempre retornar um array no campo definido e em conjunto com um filtro para tratar os valores para números inteiros.
 
 Já os métodos `get()` e `post()` retornam os dados filtrados, sendo que é possível retornar todo o conteúdo ou apenas um dado específico.
 
@@ -90,4 +91,4 @@ O código resultante seria:
 ```
 
 
-E, por fim, tem-se os métodos: `getMethod()`, `isPost()`, `isGet()`, `isPut()` e `isHead()` que tem como função determinar qual é o método de requisição.
+E, por fim, têm-se os métodos: `getMethod()`, `isPost()`, `isGet()`, `isPut()` e `isHead()` que tem como função determinar qual é o método de requisição.

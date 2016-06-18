@@ -1,7 +1,7 @@
 ----
 ## Método *load()* {#metodo-load}
 
-Esta seção aborda o carregamento de *Helpers*, Serviços, Módulos e afins nos *Controllers*.
+Esta seção aborda o carregamento de *Helpers*, Serviços, Módulos e outros componentes nos *Controllers*.
 
 ----
 

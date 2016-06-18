@@ -1,7 +1,7 @@
 ----
 ## *Helpers* {#helpers}
 
-Esta seção aborda os *Helpers* nativos do HXPHP.
+Esta seção aborda os *Helpers* do HXPHP.
 
 ----
 
@@ -13,9 +13,9 @@ Os *Helpers* são componentes auxiliares. Em suma, são objetos que desempenham 
 
 ### Alert Helper {#alert-helper}
 
-O **Alert Helper** é um componente auxiliar que é responsável pela exibição de mensagens de aviso, erro, sucesso e afins.
+O **Alert Helper** é responsável pela exibição de mensagens de aviso, erro, sucesso e afins.
 
-Para utilizar este *helper* é necessário passar um *array* como parâmetro no construtor, que deve conter a seguinte estrutura:
+Para utilizar este *helper* é necessário passar um *array* como parâmetro no construtor e este deve conter a seguinte estrutura:
 
 ```php
   array(
@@ -33,11 +33,11 @@ O código resultante seria:
     public function indexAction()
     {
 
-      $alerta = array(
+      $alerta = [
         'success',
         'Uhuul! Produto cadastrado com sucesso!',
         'O produto já está disponível para seus clientes.'
-      );
+      ];
 
       $this->load('Helpers\Alert', $alerta);
 
@@ -50,7 +50,7 @@ O código resultante seria:
 
 O método `getAlert()`, responsável pela renderização do alerta, é inserido na *view* e geralmente é encontrado em cabeçalhos para evitar a repetição de códigos.
 
-É válido ressaltar que o alerta renderizado é gerado a partir de um template localizado na pasta: `src/HXPHP/System/Helpers/Alert/templates/`.
+É válido ressaltar que o alerta renderizado é gerado a partir de um template localizado na pasta: `templates/Helpers/Alert/`.
 
 ----
 ### Menu Helper {#menu-helper}
@@ -88,7 +88,7 @@ Exemplo de configuração para definir dois menus (o primeiro para usuários com
 ```
 
 Observações:
-+ O método suporta 2 argumentos: *(array)* $menus e *(string)* $access_level;
++ O método suporta 2 argumentos: *(array)* `$menus` e *(string)* `$access_level`;
 + O segundo argumento é opcional, isto é, também é possível definir um menu sem um nível de acesso para páginas públicas e afins;
 + O *array* com os menus é padronizado da seguinte forma:
 ```php

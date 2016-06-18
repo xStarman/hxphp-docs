@@ -7,13 +7,13 @@ Nesta seção você irá conhecer mais uma das três camadas do padrão **MVC**.
 ### O que são *Models*? {#o-que-sao-models}
 Os *models*, comumente chamados de **modelos**, são responsáveis por todos os processos relacionados à dados. Ou seja, o processo de leitura, escrita e validação de dados é realizado nesta camada. Estas rotinas são chamadas de **regras de negócio**.
 
-O modelo acessa qualquer tipo de informação, seja desde um banco de dados até um arquivo *XML*.
-As informações obtidas no modelo são repassadas para o controlador que, mediante a necessidade, repassa para a visualização. Em outro caminho tem-se o envio de informações da visualização para o controlador; que, por sua vez, envia para o modelo; este consuma o processo realizando as devidas alterações nos dados.
+O modelo acessa qualquer tipo de informação, isto é, desde um banco de dados até um arquivo *XML*.
+As informações obtidas no modelo são repassadas para o controlador que, mediante a necessidade, repassa para a visualização. Em outro caminho existe o envio de informações da visualização para o controlador; que, por sua vez, envia para o modelo, e; este consuma o processo realizando as devidas alterações nos dados.
 
 ----
 
 ### Criando *Models* {#criando-models}
-Agora que você já sabe o que é um *model*, deve se atentar para os detalhes na criação do mesmo. Quando um *model* é criado com o objetivo de manipular uma tabela do banco de dados, é mais do que recomendado que este seja desenvolvido nos padrões do *ORM* vigente do framework (vide mais detalhes abaixo).
+Agora que você já sabe o que é um *model*, deve se atentar para os detalhes na criação do mesmo. Quando um *model* é criado com o objetivo de manipular uma tabela do banco de dados é mais do que recomendado que este seja desenvolvido nos padrões do *ORM* vigente do framework (vide mais detalhes abaixo).
 
 Para aproveitar dos benefícios do *ORM* é necessário que o *model* herde as configurações dele e, para tal, é necessário que o seu *model* seja uma extensão da classe mestre `\HXPHP\System\Model`.
 
@@ -39,7 +39,9 @@ As convenções da nomenclatura dos *models* são ditas pelo *ORM* vigente, port
 > Não é necessária uma correspondência direta entre as tabelas de dados e as classes do programa. A relação entre as tabelas onde originam os dados e o objecto que os disponibiliza é configurada pelo programador, isolando o código do programa das alterações à organização dos dados nas tabelas do banco de dados."
 
 Em outras palavras, com o uso de um *ORM* torna-se pouco provável o uso de comandos SQL nos códigos.
+
 A lógica é a seguinte: para cada tabela tem-se um *model*; sendo que cada *model* é um objeto, e; o *model* é uma extensão da classe mestre do *ORM*.
+
 O *ORM* nativo do HXPHP Framework é o [PHP ActiveRecord](http://phpactiverecord.org/), que é uma biblioteca *open source* desenvolvida nos padrões [ActiveRecord](http://en.wikipedia.org/wiki/Active_record_pattern). Trata-se de uma ferramenta de simples instalação e com uma sintaxe fácil, ou seja, além de ser fácil a sua implementação, o mesmo ainda conta com um nível mais do que considerável de legibilidade até mesmo para quem nunca ouviu falar deste *ORM*, pois, somente pelos métodos, nomeados de forma sugestiva, já é possível compreender o funcionamento.
 De toda forma, é recomendado que você leia a documentação oficial para compreender todos os recursos e possibilidades.
 
