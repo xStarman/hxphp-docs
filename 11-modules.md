@@ -5,15 +5,19 @@ Nesta seção você irá conhecer os módulos.
 ----
 ### O que são Módulos? {#o-que-sao-modulos}
 
-Módulos são basicamente plugins, ou seja, são bibliotecas de códigos que tem o objetivo de adicionar recursos para os componentes do framework.
+Módulos são basicamente plugins, ou seja, são bibliotecas de códigos que tem por objetivo adicionar recursos para os componentes do framework.
 
 ----
 ### *Message Module* {#message-module}
 
-O único módulo nativo do framework é o **Message Module**. Este módulo é responsável por gerenciar todas as mensagens de erro, aviso, sucesso e afins de todos os serviços do framework, sendo que também pode ser utilizado em outros componentes.
+O único módulo nativo do framework é o **Message Module**. Ele é responsável por gerenciar todas as mensagens de erro, aviso, sucesso e etc.
 
-Para utilizar este módulo é necessário, antes de tudo, criar um template de mensagens no formato JSON. Este arquivo deve ser salvo na pasta `src/HXPHP/System/Modules/Messages/templates/`. Veja o exemplo do template `auth.json`:
+Para utilizar este módulo é necessário:
 
++ Criar um template de mensagens no formato JSON, e;
++ Salvar na pasta `templates/Modules/Messages/`. 
+
+Veja o exemplo do template `auth.json`:
 ```json
   {
     "description" : "Template de mensagens para o serviço de autenticação",
@@ -54,24 +58,30 @@ Para utilizar este módulo é necessário, antes de tudo, criar um template de m
 
 ```
 
-Nota-se que existem três estruturas principais:
+Perceba que existem três estruturas principais:
 
 + Description;
 + Messages, e;
 + Alerts.
 
-A estrutura **description** deve conter a descrição do template. Já a estrutura **messages** deve acomodar mensagens que serão enviadas por e-mail. E, por fim, a estrutura **alerts** deve acomodar as mensagens que serão renderizadas pelo [Alert Helper](#alert-helper).
+A estrutura **description** deve conter a descrição do template. 
 
-As estruturas **messages** e **alerts** contém seções pré-definidas, que são elas:
+Já a estrutura **messages** deve acomodar mensagens que serão enviadas por e-mail. 
+
+E, por fim, a estrutura **alerts** que deve acomodar as mensagens que serão renderizadas pelo [Alert Helper](#alert-helper).
+
+As estruturas **messages** e **alerts** contém seções pré-definidas:
 
 + **subject** e **message** para a a estrutura **messages**, e;
 + **style**, **title** e **message** para a estrutura **alerts**.
 
-Estas seções devem ser acomodadas dentro de uma estrura intermediária que é nomeada com o código referente ao seu conteúdo.
+Estas seções devem ser acomodadas dentro de uma estrura intermediária que é nomeada com um código referente ao seu conteúdo.
 
-Após criar e preencher os templates com seus respectivos conteúdos é possível resgatar estes valores de forma prática através do **Message Module**.
+Após criar e preencher os templates com seus respectivos conteúdos é possível resgatar estes valores de forma prática através do **Messages Module**.
 
-O primeiro passo é declarar para o método construtor do módulo qual é o nome do template que será utilizada, lembre-se de não informar a extensão .json, visto que a mesma é interpretada internamente.
+O primeiro passo é declarar para o método construtor do módulo qual é o nome do template que será utilizado.
+
+Obs: **Lembre-se de não informar a extensão .json**.
 
 O código resultante seria:
 ```php
@@ -88,7 +98,7 @@ Para retornar o conteúdo de uma mensagem|alerta é necessário utilizar o segui
 
 Executando o código acima tem-se como retorno um *array* no formato necessário para ser interpretado pelo [Alert Helper](#alert-helper).
 
-Perceba que `{alerts}` é uma variável, ou seja, trata-se da estrutura que você deseja utilizar. No template anteriormente apresentado, pode-se observar duas estruturas: *messages* e *alerts*.
+Perceba que `{alerts}` é uma das opções disponíveis, isto é, trata-se da estrutura que você deseja utilizar. No template anteriormente apresentado, pode-se observar duas estruturas: *messages* e *alerts*.
 
 ```php
   $this->messages->messages->getByCode('usuario-bloqueado');
