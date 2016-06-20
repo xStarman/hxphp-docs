@@ -25,6 +25,11 @@ Para trabalhar com sessões é necessário utilizar os recursos de *Storage*. Pa
 
 Para trabalhar com *cookies* utiliza-se o objeto *Cookie* que contém os seguintes métodos:
 
++ `set()`;
++ `exists()`;
++ `get()`, e;
++ `clear()`.
+
 ```php
     class ProdutosController
     {
@@ -34,8 +39,8 @@ Para trabalhar com *cookies* utiliza-se o objeto *Cookie* que contém os seguint
 
             $this->cookie->set('name', 'value', '31556926'); //Cria um cookie ($name, $value, $time)
             echo $this->cookie->get('name'); //Seleciona um cookie
-            $this->cookie->clear('name'); //Verifica a existência do cookie
-            print_r($this->cookie->exists('name')); //Exclui um cookie
+            $this->cookie->clear('name'); // Exclui um cookie
+            print_r($this->cookie->exists('name')); //Verifica a existência do cookie
         }
     }
 ```
