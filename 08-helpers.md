@@ -72,10 +72,10 @@ Exemplo de configuração para definir dois menus (o primeiro para usuários com
 ```php
   $configs->env->development->menu->setMenus(array(
     'Home/home' => '%siteURL%',
-    'Projetos/briefcase' => '%baseURI/%projetos/listar/',
+    'Projetos/briefcase' => '%baseURI%/projetos/listar/',
     'Clientes/users' => array(
       'Listar todos/users' => '%baseURI%',
-      'Tipos de clientes/users' => '%baseURI/%clientes/tipos'
+      'Tipos de clientes/users' => '%baseURI%/clientes/tipos'
     ),
     'Usuários/users' => '%baseURI%/usuarios/listar/'
   ), 'administrator');
