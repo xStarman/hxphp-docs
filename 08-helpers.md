@@ -136,7 +136,7 @@ O exemplo acima está com todos os valores padrão, portanto, caso necessite cus
 
 #### Carregando o Menu Helper no Controller
 
-Este *helper* requer duas dependências no construtor: `Request` e `Configs`.
+Este *helper* requer duas dependências no construtor: `Request` e `Configs`. E se o menu for específico para um nível de acesso também é necessário informar o respectivo valor.
 
 
 O código resultante seria:
@@ -148,7 +148,8 @@ O código resultante seria:
       $this->load(
         'Helpers\Menu',
         $this->request,
-        $this->configs
+        $this->configs,
+        $this->auth->getUserRole() //access_level
       );
     }
   }
@@ -156,10 +157,9 @@ O código resultante seria:
 
 #### Renderizando o menu
 
-Após configurar e carregar o *helper* na *action* desejada, será possível renderizar o menu na *view*. Para tal, utilize o método `getMenu($access_level)`.
+Após configurar e carregar o *helper* na *action* desejada, será possível renderizar o menu na *view*. Para tal, utilize o método `getMenu()`.
 
 Exemplos:
 ```php
-  echo $this->menu->getMenu(); //Menu neutro
-  echo $this->menu->getMenu('administrator'); // Menu para o $access_level = administrator
+  echo $this->menu->getMenu();
 ```
