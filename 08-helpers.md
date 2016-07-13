@@ -109,7 +109,7 @@ Observações:
 
 Exemplo com todas as possíveis configurações do menu:
 ```php
-    $configs->env->development->menu->setMenus(array(
+    $configs->env->development->menu->setConfigs(array(
       'container' => false, // Tag container (opcional). Ex: nav
       'container_id' => '',
       'container_class' => '',
